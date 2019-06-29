@@ -24,14 +24,15 @@ public class Triangle {
      * Подумайте какое надо написать условие, чтобы определить можно ли построить треугольник.
      *
      * @param a Длина от точки a b.
-     * @param b Длина от точки a c.
      * @param c Длина от точки b c.
-     * @return сумма двух сторон треугольника (a,b) больше третьей стороны (с) -  a+b>c.
+     * @param b Длина от точки a c.
+     * @return a+b>c, a+c>b, b+c>a.
      */
     private boolean exist(double a, double c, double b) {
-        return a + b > c;
-        //return left > right ? left : right;
+        return a + c > b && a + b > c && b + c > a;
+
     }
+
 
     /**
      * Метод должен вычислить площадь треугольника.
