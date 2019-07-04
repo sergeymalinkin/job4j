@@ -8,9 +8,8 @@ public class Check {
             if (data[i] != data[i + 1]) {
                 return false;
             }
-            return true;
-
         }
-        return result;
+//        return result;
+        return true;
     }
 }
