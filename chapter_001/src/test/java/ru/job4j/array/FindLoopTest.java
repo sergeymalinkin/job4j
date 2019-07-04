@@ -24,4 +24,15 @@ public class FindLoopTest {
         int expect = 0;
         assertThat(result, is(expect));
     }
+    @Test
+    public void whenArrayFindMinus25Then0() {
+        FindLoop find = new FindLoop();
+        int[] input = new int[] {8, 11, 4, -25};
+        int value = -25;
+        int result = find.indexOf(input, value);
+        int expect = 3;
+        assertThat(result, is(expect));
+
+
+    }
 }
