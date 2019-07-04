@@ -20,5 +20,5 @@ import static org.junit.Assert.assertThat;
             boolean result = check.mono(input);
             assertThat(result, is(false));
         }
-}
+    }
 
