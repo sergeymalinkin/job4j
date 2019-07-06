@@ -19,7 +19,7 @@ public class ArrayChar {
         for (int i = 0; i != pref.length - 1; i++) {
 
             char first = pref [i + 1];
-            char second = wrd [i + 1];
+            char second = wrd [0];
 
             if (first != second) {
                 result = false;
