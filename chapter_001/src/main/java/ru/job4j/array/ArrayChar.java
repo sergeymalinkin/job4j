@@ -16,12 +16,9 @@ public class ArrayChar {
         char[] pref = prefix.toCharArray();
         char[] wrd = word.toCharArray();
 
-        for (int i = 0; i != pref.length - 1; i++) {
+        for (int i = 0; i < pref.length; i++) {
 
-            char first = pref [i + 1];
-            char second = wrd [0];
-
-            if (first != second) {
+            if (pref[i] != wrd[i]) {
                 result = false;
                 break;
             }
