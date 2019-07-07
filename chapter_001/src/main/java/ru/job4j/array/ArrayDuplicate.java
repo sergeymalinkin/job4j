@@ -9,11 +9,11 @@ public class ArrayDuplicate {
             for (int in = out + 1; in < duplicate; in++) {
                 if (array[out].equals(array[in])) {
                     array[in] = array[duplicate - 1];
-                    duplicate --;
+                    duplicate--;
                     in--;
                     }
                 }
             }
-        return Arrays.copyOf (array, duplicate);
+        return Arrays.copyOf(array, duplicate);
     }
 }
