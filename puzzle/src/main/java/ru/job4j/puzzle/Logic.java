@@ -69,22 +69,21 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
-        int sumRow = 0;
-        int sumCell = 0;
-        for (int row = 0; row < table.length; row++) {
-            if (table [row][row] == 1) {
-                result = true;
-                for (int cell = 0; cell < table[0].length; cell++) {
-                sumRow += table[row][row];
-                sumCell += table[cell][cell];
-            }
-                if (sumRow > 1 && sumRow != 5) {
-                    return false;
+
+        for (int a = 0; a < table.length; a++) {
+            int row = 0;
+            int cell = 0;
+            for (int b = 0; b < table.length; b++) {
+                if (table[a][b] == 1) {
+                    row++;
                 }
-                if (sumCell > 1 && sumCell != 5) {
-                    return false;
+                if (table[b][a] == 1) {
+                    cell++;
                 }
-            return result;
+                if (row == table.length || cell == table.length) {
+                    result = true;
+                    break;
+                }
             }
         }
         return result;
