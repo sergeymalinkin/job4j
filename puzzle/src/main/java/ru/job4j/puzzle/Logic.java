@@ -41,8 +41,8 @@ public class Logic {
         boolean result = cells.length > 0;
         for (Cell cell : cells) {
             if (this.findBy(cell) != -1) {
-               result = false;
-               break;
+                result = false;
+                break;
             }
         }
         return result;
@@ -69,20 +69,20 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
-
+        int row = 0;
+        int cell = 0;
         for (int a = 0; a < table.length; a++) {
-            int row = 0;
-            int cell = 0;
+            if (row == table.length || cell == table.length) {
+                result = true;
+                break;
+            }
             for (int b = 0; b < table.length; b++) {
+
                 if (table[a][b] == 1) {
                     row++;
                 }
                 if (table[b][a] == 1) {
                     cell++;
-                }
-                if (row == table.length || cell == table.length) {
-                    result = true;
-                    break;
                 }
             }
         }
