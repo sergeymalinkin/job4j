@@ -1,8 +1,7 @@
 package ru.job4j.condition;
 
 public class Triangle {
-
-    /**
+       /**
      * Метод вычисления полупериметра по длинам сторон.
      *
      * Формула.
@@ -17,7 +16,6 @@ public class Triangle {
     public double period(double a, double b, double c) {
         return (a + b + c) / 2;
     }
-
     /**
      * Метод проверяет можно ли построить треугольник с такими длинами сторон.
      *
@@ -30,10 +28,7 @@ public class Triangle {
      */
     private boolean exist(double a, double c, double b) {
         return a + c > b && a + b > c && b + c > a;
-
     }
-
-
     /**
      * Метод должен вычислить площадь треугольника.
      *
@@ -45,11 +40,35 @@ public class Triangle {
      *
      * @return Вернуть площадь, если треугольник существует или -1.
      */
+    private int a;
+    private int b;
+    private int c;
+    private int x1, x2, x3, y1, y2, y3;
+
+    public Triangle(int first, int second, int third) {
+        this.a = first;
+        this.b = second;
+        this.c = third;
+
+    }
+
+//    public Triangle(int a, int b, int c, int x1, int x2, int x3, int y1, int y2, int y3) {
+//        this.a = a;
+//        this.b = b;
+//        this.c = c;
+//        this.x1 = x1;
+//        this.x2 = x2;
+//        this.x3 = x3;
+//        this.y1 = y1;
+//        this.y2 = y2;
+//        this.y3 = y3;
+//    }
+
     public double area(int x1, int y1, int x2, int y2, int x3, int y3) {
         double rsl = (x1 + y1 + x2 + y2 + x3 + y3) / 2;
-        double a = new Point().distance(x1, y1, x2, y2);
-        double b = new Point().distance(x2, y2, x3, y3);
-        double c = new Point().distance(x1, y1, x3, y3);
+        double a = new Point(this.a, this.b).distance(x1, y1, x2, y2);
+        double b = new Point(this.b, this.c).distance(x2, y2, x3, y3);
+        double c = new Point(this.a, this.c).distance(x1, y1, x3, y3);
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             // написать формулу для расчета площади треугольника.
