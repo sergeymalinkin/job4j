@@ -9,14 +9,16 @@ import static org.junit.Assert.assertThat;
 public class TriangleTest {
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
-        // Создаем объект треугольник.
-        Triangle triangle = new Triangle(0,0,0);
-        // Вычисляем площадь.
-        double result = triangle.area(0, 0, 0, 2, 2, 0);
-        // Задаем ожидаемый результат.
+        Point first = new Point(0, 0);
+        Point second = new Point(0, 2);
+        Point third = new Point(2, 0);
+        Triangle triangle = new Triangle(first, second, third);
+        first.info();
+        second.info();
+        third.info();
+        double result = triangle.area();
         double expected = 2D;
-        //Проверяем результат и ожидаемое значение.
+        System.out.println(String.format("Result is %s", result));
         assertThat(result, closeTo(expected, 0.1));
     }
-
 }
