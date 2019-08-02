@@ -16,9 +16,9 @@
     <modules>
        <module>chapter_001</module>
 		<module>puzzle</module>
-		<module>course_test</module>
 		<module>chapter_002</module>
-     </modules>
+		<module>course_test</module>
+	</modules>
 	 
 	<dependencies>
 		<dependency>
