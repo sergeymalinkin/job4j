@@ -25,6 +25,7 @@ public class MaxTest {
         int result = max.max(2, 2);
         assertThat(result, is(2));
     }
+    @Test
     public void whenThirdMaxOfTheFour() {
         Max check = new Max();
         int result = check.max(1, 2, 4, 3);
