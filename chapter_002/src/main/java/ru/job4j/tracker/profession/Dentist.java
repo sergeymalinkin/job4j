@@ -1,4 +1,4 @@
-package ru.job4j.tracker.Profession;
+package ru.job4j.tracker.profession;
 
 public class Dentist extends Doctor {
     private String qualification;
@@ -18,11 +18,11 @@ public class Dentist extends Doctor {
         super.giveShots();
     }
 
-    public void givesAdvice (){
+    public void givesAdvice() {
 
 
     }
-    public void fixTeeth (){
+    public void fixTeeth() {
 
     }
 

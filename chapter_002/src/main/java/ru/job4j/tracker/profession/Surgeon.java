@@ -1,7 +1,7 @@
-package ru.job4j.tracker.Profession;
+package ru.job4j.tracker.profession;
 
 public class Surgeon extends Doctor {
-    public void makeOperation(){
+    public void makeOperation() {
 
     }
     @Override

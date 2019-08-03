@@ -1,4 +1,4 @@
-package ru.job4j.tracker.Profession;
+package ru.job4j.tracker.profession;
 
 public class Builder extends Engineer {
     @Override
@@ -11,7 +11,7 @@ public class Builder extends Engineer {
         return super.getSurname();
     }
 
-    public void createsStructures(){
+    public void createsStructures() {
 
     }
 }

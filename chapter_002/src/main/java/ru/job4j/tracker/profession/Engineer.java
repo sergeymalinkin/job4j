@@ -1,17 +1,17 @@
-package ru.job4j.tracker.Profession;
+package ru.job4j.tracker.profession;
 
 public class Engineer extends Profession {
     @Override
     public String getEducation() {
         return super.getEducation();
     }
-    public void control(){
+    public void control() {
 
     }
-    public void developedTechnology(){
+    public void developedTechnology() {
 
     }
-    public void giveTask(){
+    public void giveTask() {
 
     }
 }
