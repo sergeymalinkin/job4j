@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * @version 2.0
+ * @version 3.0
  * @since 16.08.2019.
  */
 public class Tracker {
@@ -31,6 +31,7 @@ public class Tracker {
         this.items[this.position++] = item;
         return item;
     }
+
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
@@ -41,6 +42,7 @@ public class Tracker {
         //Реализовать метод генерации.
         return String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
     }
+
     /**
      * Метод реализующий редактирование заявки в хранилище
      *
@@ -58,6 +60,7 @@ public class Tracker {
         }
         return result;
     }
+
     /**
      * Метод должен удалить ячейку в массиве.
      * Для этого необходимо найти ячейку в массиве по id.  Далее сместить все значения
@@ -68,13 +71,14 @@ public class Tracker {
         for (int index = 0; index < position; index++) {
             if (this.items[index].getId().equals(id)) {
                 result = true;
-                System.arraycopy(this.items, index + 1,  this.items, index, position - index);
+                System.arraycopy(this.items, index + 1, this.items, index, position - index);
                 position--;
                 break;
             }
         }
         return result;
     }
+
     /**
      * Метод  возвращает копию массива this.items без null элементов;
      *
@@ -83,6 +87,7 @@ public class Tracker {
     public Item[] findAll() {
         return Arrays.copyOf(this.items, this.position);
     }
+
     /**
      * Метод проверяет в цикле все элементы массива this.items, сравнивая name (используя метод getName класса Item)
      * с аргументом метода String key.
@@ -91,13 +96,15 @@ public class Tracker {
     public Item[] findByName(String key) {
         int counter = 0;
         Item[] tmp = new Item[this.position];
-        for (int index = 0; index < position; index++) {
-            if ((items[index] != null) && items[index].getName().equals(key)) {
-                tmp[counter++] = items[index];
+        for (int index = 0; index < this.position; index++) {
+            if (this.items[index].getName().equals(key)) {
+                System.arraycopy(this.items, index, tmp, counter, 1);
+                counter++;
             }
         }
         return Arrays.copyOf(tmp, counter);
     }
+
     /**
      * Метод реализующий поиск заявки в хранилище
      *
@@ -105,8 +112,8 @@ public class Tracker {
      * @return item.
      */
     public Item findById(String id) {
-        for (Item item : this.items) {
-            if (item != null && item.getId().equals(id)) {
+            for (Item item : items) {
+            if ((item != null) && (item.getId().equals(id))) {
                 return item;
             }
         }
