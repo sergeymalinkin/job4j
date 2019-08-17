@@ -5,13 +5,13 @@ import java.util.Objects;
 public class Item {
     private String id;
     private String name;
-    private String decs;
+    private String desc;
     private long time;
 
-    public Item(String name, String decs, long time) {
+
+    public Item(String name, String desc) {
         this.name = name;
-        this.decs = decs;
-        this.time = time;
+        this.desc = desc;
     }
 
     public String getId() {
@@ -30,12 +30,12 @@ public class Item {
         this.name = name;
     }
 
-    public String getDecs() {
-        return decs;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDecs(String decs) {
-        this.decs = decs;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public long getTime() {
@@ -48,17 +48,26 @@ public class Item {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
-        return time == item.time &&
-                Objects.equals(id, item.id) &&
-                Objects.equals(name, item.name) &&
-                Objects.equals(decs, item.decs);
+        return time == item.time && Objects.equals(id, item.id) && Objects.equals(name, item.name) && Objects.equals(desc, item.desc);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, decs, time);
+        return Objects.hash(id, name, desc, time);
+    }
+
+    @Override
+    public String toString() {
+        return "ID заявки:   |" + this.id
+                + '\n' + '\r'
+                + "Имя заявки:  |" + this.name + '\n' + '\r'
+                + "Описание:    |" + this.desc;
     }
 }
