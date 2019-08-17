@@ -89,14 +89,14 @@ public class Tracker {
      * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его;
      */
     public Item[] findByName(String key) {
-        Item[] result = new Item[this.items.length];
-        for (int index = 0; index < this.items.length; index++) {
-            if (this.items[index].getName().equals(key)) {
-                result[index] = this.items[index];
-                break;
+        int counter = 0;
+        Item[] tmp = new Item[this.position];
+        for (int index = 0; index < position; index++) {
+            if ((items[index] != null) && items[index].getName().equals(key)) {
+                tmp[counter++] = items[index];
             }
         }
-        return result;
+        return Arrays.copyOf(tmp, counter);
     }
     /**
      * Метод реализующий поиск заявки в хранилище
@@ -106,8 +106,8 @@ public class Tracker {
      */
     public Item findById(String id) {
         Item result = null;
-        for (Item item : this.items) {
-            if (item.getId().equals(id)) {
+        for (Item item : items) {
+            if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
             }
