@@ -105,13 +105,11 @@ public class Tracker {
      * @return item.
      */
     public Item findById(String id) {
-        Item result = null;
-        for (Item item : items) {
+        for (Item item : this.items) {
             if (item != null && item.getId().equals(id)) {
-                result = item;
-                break;
+                return item;
             }
         }
-        return result;
+        return null;
     }
 }
