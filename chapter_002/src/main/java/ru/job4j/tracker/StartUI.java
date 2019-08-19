@@ -1,4 +1,4 @@
-package ru.job4j.tracker.tracker;
+package ru.job4j.tracker;
 /**
  * @version 1.0
  * @since 17.08.2019

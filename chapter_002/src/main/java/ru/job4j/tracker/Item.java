@@ -1,4 +1,4 @@
-package ru.job4j.tracker.tracker;
+package ru.job4j.tracker;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public class Item {
         this.time = time;
     }
 
-    public Item (long created) {
+    public Item(long created) {
         this.created = created;
     }
 
@@ -60,7 +60,9 @@ public class Item {
         return created;
     }
 
-    public void setCreated(long created) {this.created = created; }
+    public void setCreated(long created) {
+        this.created = created;
+    }
 
     @Override
     public boolean equals(Object o) {
