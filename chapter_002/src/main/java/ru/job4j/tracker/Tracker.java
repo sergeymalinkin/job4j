@@ -37,7 +37,7 @@ public class Tracker {
      *
      * @return Уникальный ключ.
      */
-    String generateId() {
+    public String generateId() {
         //Реализовать метод генерации.
         return String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
     }
@@ -49,9 +49,9 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int index = 0; index < position; index++) {
-            if (items[index] != null && items[index].getId().equals(id)) {
-                items[index] = item;
-                items[index].setId(id);
+            if (items[index] != null && this.items[index].getId().equals(id)) {
+                item.setId(id);
+                this.items[index] = item;
                 result = true;
                 break;
             }
@@ -89,27 +89,30 @@ public class Tracker {
      * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его;
      */
     public Item[] findByName(String key) {
-        int counter = 0;
-        Item[] tmp = new Item[this.position];
-        for (int index = 0; index < position; index++) {
-            if ((items[index] != null) && items[index].getName().equals(key)) {
-                tmp[counter++] = items[index];
+        Item[] result = new Item[this.position];
+        int count = 0;
+        for (int index = 0; index != this.position; index++) {
+            if (this.items[index].getName().equals(key)) {
+                result[count] = this.items[index];
+                count++;
             }
         }
-        return Arrays.copyOf(tmp, counter);
+        return Arrays.copyOf(result, count);
     }
-    /**
-     * Метод реализующий поиск заявки в хранилище
-     *
-     * @param id поиск заявки.
-     * @return item.
-     */
-    public Item findById(String id) {
-        for (Item item : this.items) {
-            if (item != null && item.getId().equals(id)) {
-                return item;
+        /**
+         * Метод реализующий поиск заявки в хранилище
+         *
+         * @param id поиск заявки.
+         * @return item.
+         */
+        public Item findById(String id) {
+            Item result = null;
+            for (int index = 0; index != this.position; index++) {
+                if (this.items[index].getId().equals(id)) {
+                    result = this.items[index];
+                    break;
+                }
             }
+            return result;
         }
-        return null;
     }
-}
