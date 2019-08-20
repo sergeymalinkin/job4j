@@ -34,13 +34,13 @@ public class StartUI {
      * Константа для выхода из цикла.
      */
     private static final String EXIT = "6";
-//    /**
-//     * Получение данных от пользователя.
-//     */
+   /**
+    * Получение данных от пользователя.
+     */
     private final ConsoleInput input;
-//    /**
-//     * Хранилище заявок.
-//     */
+    /**
+    * Хранилище заявок.
+    */
     private final Tracker tracker;
 
     /**

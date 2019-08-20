@@ -7,7 +7,7 @@ public class Item {
     private String name;
     private String desc;
     private long time;
-    private long created;
+//    private long created;
 
 
     public Item(String name, String desc, long time) {
@@ -16,11 +16,13 @@ public class Item {
         this.time = time;
     }
 
-    public Item(long created) {
-        this.created = created;
-    }
+//    public Item(long created) {
+//        this.created = created;
+//    }
 
     public Item(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
 
     }
 
@@ -36,33 +38,36 @@ public class Item {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDesc() {
         return desc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+    /**
+     * методы пока не используются
+     */
+    //    public void setName(String name) {
+//        this.name = name;
+//    }
 
-    public long getTime() {
-        return time;
-    }
+   //    public void setDesc(String desc) {
+//        this.desc = desc;
+//    }
 
-    public void setTime(long time) {
-        this.time = time;
-    }
+//    public long getTime() {
+//        return time;
+//    }
 
-    public long getCreated() {
-        return created;
-    }
+//    public void setTime(long time) {
+//        this.time = time;
+//    }
 
-    public void setCreated(long created) {
-        this.created = created;
-    }
+//    public long getCreated() {
+//        return created;
+//    }
+
+//    public void setCreated(long created) {
+//        this.created = created;
+//    }
 
     @Override
     public boolean equals(Object o) {
