@@ -22,3 +22,7 @@ notifications:
 env:
   global:
     - CODECOV_TOKEN="d535fc6c-fb75-436f-8d7f-213ec02ebf4e"
+
+install: true
+script:
+  - mvn install
