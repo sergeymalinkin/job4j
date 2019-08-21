@@ -14,10 +14,10 @@ public class TriangleTest {
                 triangle.draw(),
                 is(
                         new StringBuilder()
-                                .append("     *     ")
-                                .append("  *      * ")
-                                .append("*          *")
-                                .append("*************")
+                                .append("     *     ").append(System.lineSeparator())
+                                .append("  *      * ").append(System.lineSeparator())
+                                .append("*          *").append(System.lineSeparator())
+                                .append("*************").append(System.lineSeparator())
                                 .toString()
                 )
         );
