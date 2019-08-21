@@ -4,8 +4,14 @@ package ru.job4j.tracker;
  * @since 17.08.2019
  */
 public class StartUI {
-//    private ConsoleInput input = new ConsoleInput();
-//    private Tracker tracker = new Tracker();
+    /**
+     * Получение данных от пользователя.
+     */
+    private final Input input;
+    /**
+     * Хранилище заявок.
+     */
+    private final Tracker tracker;
     /**
      * Константа меню для добавления новой заявки.
      */
@@ -34,14 +40,6 @@ public class StartUI {
      * Константа для выхода из цикла.
      */
     private static final String EXIT = "6";
-   /**
-    * Получение данных от пользователя.
-     */
-    private final ConsoleInput input;
-    /**
-    * Хранилище заявок.
-    */
-    private final Tracker tracker;
 
     /**
      * Конструтор инициализирующий поля.
@@ -49,7 +47,7 @@ public class StartUI {
      * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
-    public StartUI(ConsoleInput input, Tracker tracker) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
