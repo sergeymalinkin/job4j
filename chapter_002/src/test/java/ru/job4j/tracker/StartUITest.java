@@ -1,9 +1,7 @@
 package ru.job4j.tracker;
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 public class StartUITest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
@@ -52,7 +50,6 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll()[0].getName(), is("test1"));
     }
-
     @Test
     public void whenUserFindsItemByNameThenTrackerFindsItem() {
         Tracker tracker = new Tracker();
