@@ -47,14 +47,14 @@ public class StartUI {
      * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
-    public StartUI(Input input, Tracker tracker) {
+    StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
     /**
      * Основой цикл программы.
      */
-    public void init() {
+    void init() {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
@@ -122,16 +122,16 @@ public class StartUI {
         }
     }
         private void findByIdItem() {
-            System.out.println("------------ Поиск заявки по ID --------------");
+            System.out.println("------------ Поиск заявки по ID -----------------");
             String id = this.input.ask("Введите id заявки :");
-            System.out.println("----------------- Результат ------------------");
+            System.out.println("------------------ Результат --------------------");
             Item item = this.tracker.findById(id);
             if (item != null) {
                 System.out.println(item.toString());
             } else {
                 System.out.println("Item not found");
             }
-            System.out.println("----------------------------------------------");
+            System.out.println("------------------------------------------------");
         }
         private void findByNameItem() {
         System.out.println("------------ Поиск заявки по имени --------------");
@@ -139,11 +139,11 @@ public class StartUI {
         System.out.println("------------------ Результат --------------------");
         for (Item item : this.tracker.findByName(name)) {
             System.out.println(item.toString());
-            System.out.println("---------------------------------------------");
+            System.out.println("------------------------------------------------");
         }
     }
     private void showMenu() {
-        System.out.println("Меню.");
+        System.out.println("Меню");
         System.out.println("0. Добавление новой заявки");
         System.out.println("1. Отобразить все заявки");
         System.out.println("2. Замена заявки");
