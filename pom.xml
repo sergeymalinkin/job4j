@@ -49,8 +49,8 @@
 	<!-- подключим все подпроекты (дочерние pom) -->
 	<modules>
        <module>chapter_001</module>
-		<module>puzzle</module>
 		<module>chapter_002</module>
+		<module>puzzle</module>
 		</modules>
 	<!-- подключим сторонние библиотеки, которые будут нужны в проекте -->
 	<dependencies>
