@@ -26,7 +26,7 @@ public class Tracker {
      *
      * @return id.
      */
-    public Item add(Item item) {
+    Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
         return item;
@@ -37,7 +37,7 @@ public class Tracker {
      *
      * @return Уникальный ключ.
      */
-    public String generateId() {
+    private String generateId() {
         //Реализовать метод генерации.
         return String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
     }
@@ -46,7 +46,7 @@ public class Tracker {
      *
      * @return id.
      */
-    public boolean replace(String id, Item item) {
+    boolean replace(String id, Item item) {
         boolean result = false;
         for (int index = 0; index < position; index++) {
             if (items[index] != null && this.items[index].getId().equals(id)) {
@@ -63,7 +63,7 @@ public class Tracker {
      * Для этого необходимо найти ячейку в массиве по id.  Далее сместить все значения
      * справа от удаляемого элемента - на одну ячейку влево с помощью System.arrayCopy();
      */
-    public boolean delete(String id) {
+    boolean delete(String id) {
         boolean result = false;
         for (int index = 0; index < position; index++) {
             if (this.items[index].getId().equals(id)) {
@@ -80,7 +80,7 @@ public class Tracker {
      *
      * @return массив.
      */
-    public Item[] findAll() {
+    Item[] findAll() {
         return Arrays.copyOf(this.items, this.position);
     }
     /**
@@ -88,7 +88,7 @@ public class Tracker {
      * с аргументом метода String key.
      * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его;
      */
-    public Item[] findByName(String key) {
+    Item[] findByName(String key) {
         Item[] result = new Item[this.position];
         int count = 0;
         for (int index = 0; index != this.position; index++) {
@@ -105,7 +105,7 @@ public class Tracker {
          * @param id поиск заявки.
          * @return item.
          */
-        public Item findById(String id) {
+        Item findById(String id) {
             Item result = null;
             for (int index = 0; index != this.position; index++) {
                 if (this.items[index].getId().equals(id)) {

@@ -11,17 +11,15 @@ public class StubInput implements Input {
      * y - выйти из трекера.
      */
     private final String[] answers;
-
     /**
      * Поле считает количество вызовом метода ask.
      * При каждом вызове надо передвинуть указатель на новое число.
      */
     private int position = 0;
 
-    public StubInput(final String[] answers) {
+    StubInput(final String[] answers) {
         this.answers = answers;
     }
-
     /**
      * Давайте рассмотрим, как работает этот метод.
      * у нас есть объект в котором содержатся заранее продуманные ответы.
@@ -34,5 +32,4 @@ public class StubInput implements Input {
     public String ask(String question) {
         return answers[position++];
     }
-
 }

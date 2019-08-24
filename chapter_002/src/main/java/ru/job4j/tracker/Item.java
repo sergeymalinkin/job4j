@@ -45,11 +45,8 @@ public class Item {
     public int hashCode() {
         return Objects.hash(id, name, desc, time);
     }
-
     @Override
     public String toString() {
-        return "ID заявки:   |" + this.id + '\n' + '\r'
-                + "Имя заявки:  |" + this.name + '\n' + '\r'
-                + "Описание:    |" + this.desc;
+        return "ID заявки:   |" + this.id + '\n' + '\r' + "Имя заявки:  |" + this.name + '\n' + '\r' + "Описание:    |" + this.desc;
     }
 }
