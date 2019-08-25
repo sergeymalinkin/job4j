@@ -84,6 +84,15 @@
 	</dependencies>
 	<build>
 		<plugins>
+			<!-- плагин coveralls -->
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>4.3.0</version>
+				<configuration>
+					<repoToken>HEwqGG5HzVPxUc1HicpyGw4CYL8C1EUu5</repoToken>
+				</configuration>
+			</plugin>
 			<!-- плагин JaCoCo -->
 			<plugin>
 				<!-- версия плагина -->
