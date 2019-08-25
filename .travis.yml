@@ -23,9 +23,9 @@ notifications:
 env:
   global:
     - CODECOV_TOKEN="d535fc6c-fb75-436f-8d7f-213ec02ebf4e"
-
-install:
-  - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#
+#install:
+#  - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
   - mvn test jacoco:report
 
