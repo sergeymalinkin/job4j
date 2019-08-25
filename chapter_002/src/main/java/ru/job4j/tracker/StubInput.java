@@ -10,15 +10,15 @@ public class StubInput implements Input {
      * desc - описание заявки
      * y - выйти из трекера.
      */
-    private final String[] answers;
+    private final String[] value;
     /**
      * Поле считает количество вызовом метода ask.
      * При каждом вызове надо передвинуть указатель на новое число.
      */
-    private int position = 0;
+    private int position;
 
-    StubInput(final String[] answers) {
-        this.answers = answers;
+    public StubInput(final String[] value) {
+        this.value = value;
     }
     /**
      * Давайте рассмотрим, как работает этот метод.
@@ -30,6 +30,23 @@ public class StubInput implements Input {
      */
     @Override
     public String ask(String question) {
-        return answers[position++];
+        return this.value[this.position++];
+    }
+
+    public int ask(String question, int[] range) {
+        int key = Integer.valueOf(this.value[this.position++]);
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Out of menu range.");
+        }
     }
 }
+
