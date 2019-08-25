@@ -10,6 +10,7 @@ sudo: false
 # Здесь используется сторонни сервис https://codecov.io/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - mvn clean test jacoco:report coveralls:report
 
 # Отправлять уведомление на почтуyouremail@smtp.ru(Изменить на свою) если сборка упала
 notifications:
@@ -26,3 +27,4 @@ env:
 install: true
 script:
   - mvn install
+
