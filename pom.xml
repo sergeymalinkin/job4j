@@ -34,24 +34,24 @@
       </properties>
       -->
 	<!-- настройка окружения пакета -->
-    <properties>
+	<properties>
 		<!-- пропишем версию компилятора, которая должна выполнятся в среде программирования -->
 		<!-- версия компилятора -->
-       <maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.source>11</maven.compiler.source>
 		<!-- версия для компилированных файлов -->
 		<maven.compiler.target>11</maven.compiler.target>
 		<!-- кодировка -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<source>${java.version}</source>
 		<target>${java.version}</target>
-     </properties>
+	</properties>
 
 	<!-- подключим все подпроекты (дочерние pom) -->
 	<modules>
-       <module>chapter_001</module>
+		<module>chapter_001</module>
 		<module>chapter_002</module>
 		<module>puzzle</module>
-		</modules>
+	</modules>
 	<!-- подключим сторонние библиотеки, которые будут нужны в проекте -->
 	<dependencies>
 		<!-- библиотека для тестирования -->
@@ -92,6 +92,15 @@
 				<configuration>
 					<repoToken>HEwqGG5HzVPxUc1HicpyGw4CYL8C1EUu5</repoToken>
 				</configuration>
+				<executions>
+					<!-- настройка запуска задачи анализа кода на покрытие -->
+					<execution>
+						<id>report</id>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<!-- плагин JaCoCo -->
 			<plugin>
@@ -99,14 +108,13 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.4</version>
+				<!-- настройка запуска задачи анализа кода на покрытие -->
 				<executions>
-					<!-- настройка запуска задачи анализа кода на покрытие -->
 					<execution>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
-					<!-- настройка запуска задачи проверки кода после запуска команды mvn test. -->
 					<execution>
 						<id>report</id>
 						<phase>test</phase>
@@ -133,8 +141,6 @@
 						<artifactId>asm</artifactId>
 						<version>6.2</version>
 					</dependency>
-
-
 				</dependencies>
 			</plugin>
 			<!-- плагин для сборки javadoc -->
