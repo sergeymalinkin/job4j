@@ -10,7 +10,7 @@ sudo: false
 # Здесь используется сторонни сервис https://codecov.io/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - mvn clean test jacoco:report coveralls:report
+  - mvn coveralls:report
 
 # Отправлять уведомление на почтуyouremail@smtp.ru(Изменить на свою) если сборка упала
 notifications:
@@ -24,7 +24,8 @@ env:
   global:
     - CODECOV_TOKEN="d535fc6c-fb75-436f-8d7f-213ec02ebf4e"
 
-install: true
+install:
+  - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - mvn install
+  - mvn test jacoco:report
 
