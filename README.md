@@ -1,10 +1,6 @@
 [![Build Status](https://travis-ci.org/sergeymalinkin/job4j.svg?branch=master)](https://travis-ci.org/sergeymalinkin/job4j)
 [![codecov](https://codecov.io/gh/sergeymalinkin/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/sergeymalinkin/job4j)
-[![Coverage Status](https://coveralls.io/repos/github/sergeymalinkin/job4j/badge.svg?branch=master)](https://coveralls.io/github/sergeymalinkin/job4j?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sergeymalinkin/job4j/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sergeymalinkin/job4j/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/sergeymalinkin/job4j/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sergeymalinkin/job4j/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/sergeymalinkin/job4j/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sergeymalinkin/job4j/build-status/master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/sergeymalinkin/job4j/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
 
 ### **Учебный репозиторий Сергея Малинкина**
 
