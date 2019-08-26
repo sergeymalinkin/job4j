@@ -1,6 +1,21 @@
-checks:
-    java: true
+filter:
+    paths:
+        - puzzle/src/main/java/
+        - chapter_002/src/main/java/
+        - chapter_001/src/main/java/
 build:
-    environment:
-        sdkman:
-            - java
+    nodes:
+        analysis:
+            environment:
+                docker:
+                    remote_engine: true
+            tests:
+                override:
+                    - java-scrutinizer-run
+                    -
+                        command: java-sonar-run
+                        use_website_config: true
+        tests: true
+checks:
+    java:
+        code_rating: true
