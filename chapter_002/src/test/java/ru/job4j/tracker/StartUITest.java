@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.concurrent.atomic.AtomicReference;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -14,19 +13,19 @@ public class StartUITest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final static String SPLIT_LINE = System.lineSeparator();
     private final static String MENU =
-                    "0. Добавление новой заявки" + SPLIT_LINE
+            "0 : Добавление новой заявки" + SPLIT_LINE
                     +
-                    "1. Отобразить все заявки" + SPLIT_LINE
+                    "1 : Отобразить все заявки" + SPLIT_LINE
                     +
-                    "2. Замена заявки" + SPLIT_LINE
+                    "2 : Замена заявки" + SPLIT_LINE
                     +
-                    "3. Удаление заявки" + SPLIT_LINE
+                    "3 : Удаление заявки" + SPLIT_LINE
                     +
-                    "4. Поиск заявки по ID" + SPLIT_LINE
+                    "4 : Поиск заявки по ID" + SPLIT_LINE
                     +
-                    "5. Поиск заявки по имени" + SPLIT_LINE
+                    "5 : Поиск заявки по имени" + SPLIT_LINE
                     +
-                    "6. Выход";
+                    "6 : Выход";
     @Before
     public void loadOutputBefore() {
         System.setOut(new PrintStream(this.out));
@@ -36,7 +35,7 @@ public class StartUITest {
     public void backOutputAfter() {
         System.setOut(this.stdout);
     }
-
+//
     @Test
     public void whenShowAllItem() {
         Tracker tracker = new Tracker();
@@ -70,13 +69,13 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
     @Test
-    public void whenUserDeleteItemThenTrackerDeleteItem() {
+    public <delete> void whenUserDeleteItemThenTrackerDeleteItem() {
         Tracker tracker = new Tracker();
-        Item first = tracker.add(new Item("test1", "desc1"));
-        new AtomicReference<>(tracker.add(new Item("test2", "desc2")));
-        Input input = new StubInput(new String[]{"3", first.getId(), "6"});
+        Item item = tracker.add(new Item("test1", "desc1"));
+        Input input = new StubInput(new String[]{"3", item.getId(), "6"});
         new StartUI(input, tracker);
-        assertThat(tracker.findAll()[0].getName(), is("test2"));
+        Item delete = null;
+        assertThat(tracker.findById(item.getId()), is((delete) null));
     }
     @Test
     public void whenUserFindsItemByIdThenTrackerFindsItem() {
@@ -97,6 +96,7 @@ public class StartUITest {
                 MENU + SPLIT_LINE;
         assertThat(out.toString(), is(sb));
     }
+    //
     @Test
     public void whenFindItemByName() {
         Tracker tracker = new Tracker();
