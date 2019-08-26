@@ -4,6 +4,7 @@ package ru.job4j.tracker;
  * @since 26.08.2019
  */
 public class StartUI {
+    protected boolean working = true;
     /**
      * Константа для выхода из цикла.
      */
@@ -30,7 +31,7 @@ public class StartUI {
     private void init() {
         boolean exit = false;
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+        menu.fillActions(this);
         int[] range = new int[menu.getActionsLength()];
         for (int i = 0; i < menu.getActionsLength(); i++) {
             range[i] = i;
@@ -43,6 +44,9 @@ public class StartUI {
                 exit = true;
             }
         }
+    }
+    public void stop() {
+        this.working = false;
     }
     public static void main(String[] args) {
         new StartUI(

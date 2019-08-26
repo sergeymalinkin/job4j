@@ -37,14 +37,14 @@ class MenuTracker {
     /**
      * Метод заполняет массив.
      */
-    void fillActions() {
+    void fillActions(StartUI ui) {
         this.actions.add(new AddItem(0, "Добавление новой заявки"));
         this.actions.add(new ShowItems(1, "Отобразить все заявки"));
         this.actions.add(new EditItem(2, "Замена заявки"));
         this.actions.add(new DeleteItem(3, "Удаление заявки"));
         this.actions.add(new FindItemById(4, "Поиск заявки по ID"));
         this.actions.add(new FindItemByName(5, "Поиск заявки по имени"));
-        this.actions.add(new ExitProgram(6, "Выход"));
+        this.actions.add(new ExitProgram(6, "Выход", ui));
     }
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
