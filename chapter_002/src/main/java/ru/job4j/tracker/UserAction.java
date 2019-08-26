@@ -10,7 +10,6 @@ public interface UserAction {
      * Основной метод.
      * @param input объект типа Input
      * @param tracker объект типа Tracker
-//     * @return
      */
     void execute(Input input, Tracker tracker);
     /**

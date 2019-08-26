@@ -25,6 +25,5 @@ public class AddItem implements UserAction {
         Item item = new Item(name, desc);
         tracker.add(item);
         System.out.println("------------ Новая заявка с Id: " + item.getId() + " " + "добавлена!");
-
     }
 }

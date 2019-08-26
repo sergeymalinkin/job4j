@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuTracker {
+class MenuTracker {
     /**
      * @param хранит ссылку на объект .
      */
@@ -31,7 +31,7 @@ public class MenuTracker {
      *
      * @return длину массива
      */
-    public int getActionsLength() {
+    int getActionsLength() {
         return this.actions.size();
     }
     /**

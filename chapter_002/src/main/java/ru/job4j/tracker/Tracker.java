@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import java.util.Arrays;
 import java.util.Random;
-
 /**
  * @version 2.0
  * @since 16.08.2019.
@@ -99,20 +98,20 @@ public class Tracker {
         }
         return Arrays.copyOf(result, count);
     }
-        /**
-         * Метод реализующий поиск заявки в хранилище
-         *
-         * @param id поиск заявки.
-         * @return item.
-         */
-        Item findById(String id) {
-            Item result = null;
-            for (int index = 0; index != this.position; index++) {
-                if (this.items[index].getId().equals(id)) {
-                    result = this.items[index];
-                    break;
-                }
+    /**
+     * Метод реализующий поиск заявки в хранилище
+     *
+     * @param id поиск заявки.
+     * @return item.
+     */
+    Item findById(String id) {
+        Item result = null;
+        for (int index = 0; index != this.position; index++) {
+            if (this.items[index].getId().equals(id)) {
+                result = this.items[index];
+                break;
             }
-            return result;
         }
+        return result;
+    }
 }

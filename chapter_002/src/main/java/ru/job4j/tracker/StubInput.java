@@ -17,7 +17,7 @@ public class StubInput implements Input {
      */
     private int position;
 
-    public StubInput(final String[] value) {
+    StubInput(final String[] value) {
         this.value = value;
     }
     /**
@@ -34,7 +34,7 @@ public class StubInput implements Input {
     }
 
     public int ask(String question, int[] range) {
-        int key = Integer.valueOf(this.value[this.position++]);
+        int key = Integer.parseInt(this.value[this.position++]);
         boolean exist = false;
         for (int value : range) {
             if (value == key) {

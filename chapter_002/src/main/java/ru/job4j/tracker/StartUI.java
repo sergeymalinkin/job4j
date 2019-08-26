@@ -1,8 +1,4 @@
 package ru.job4j.tracker;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @version 2.0
  * @since 24.08.2019
@@ -31,7 +27,6 @@ public class StartUI {
         this.tracker = tracker;
         this.init();
     }
-
     private void init() {
         boolean exit = false;
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
@@ -43,8 +38,7 @@ public class StartUI {
         while (!exit) {
             menu.show();
             int answer = input.ask("Введите пункт меню : ", range);
-            menu.select(Integer.valueOf(answer));
-//            menu.select(input.ask("выбрать:", range));
+            menu.select(answer);
             if (EXIT == answer) {
                 exit = true;
             }
