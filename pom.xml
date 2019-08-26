@@ -71,35 +71,21 @@
 			<version>1.7.21</version>
 			<scope>test</scope>
 		</dependency>
-		<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.eluder.coveralls/coveralls-maven-plugin &ndash;&gt;-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.eluder.coveralls</groupId>-->
-		<!--			<artifactId>coveralls-maven-plugin</artifactId>-->
-		<!--			<version>4.3.0</version>-->
-		<!--			</dependency>-->
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- плагин coveralls -->
-			<!--			<plugin>-->
-			<!--				<groupId>org.eluder.coveralls</groupId>-->
-			<!--				<artifactId>coveralls-maven-plugin</artifactId>-->
-			<!--				<version>4.3.0</version>-->
-			<!--				<executions>-->
-			<!--					&lt;!&ndash; настройка запуска задачи анализа кода на покрытие &ndash;&gt;-->
-			<!--					<execution>-->
-			<!--						<id>report</id>-->
-			<!--						<phase>test</phase>-->
-			<!--						<goals>-->
-			<!--							<goal>report</goal>-->
-			<!--						</goals>-->
-			<!--					</execution>-->
-			<!--				</executions>-->
-			<!--				<configuration>-->
-			<!--					<repoToken>HEwqGG5HzVPxUc1HicpyGw4CYL8C1EUu5</repoToken>-->
-			<!--				</configuration>-->
-			<!--			</plugin>-->
+			<!-- плагин maven-site -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
 			<!-- плагин JaCoCo -->
 			<plugin>
 				<!-- версия плагина -->
