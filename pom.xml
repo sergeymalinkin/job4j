@@ -22,7 +22,6 @@
 	<!-- доменное имя проекта -->
 	<!-- сочетание groupId + artifactId + version - позволяют найти нужную библиотеку и загрузить ее в проект. -->
 	<url>http://job4j.ru</url>
-
 	<!-- настройка окружения пакета -->
 	<properties>
 		<!-- пропишем версию компилятора, которая должна выполнятся в среде программирования -->
@@ -35,7 +34,6 @@
 		<source>12</source>
 		<target>12</target>
 	</properties>
-
 	<!-- подключим все подпроекты (дочерние pom) -->
 	<modules>
 		<module>chapter_001</module>
@@ -72,7 +70,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<!-- плагин maven-site -->
