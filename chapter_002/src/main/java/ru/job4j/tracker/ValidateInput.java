@@ -6,7 +6,7 @@ package ru.job4j.tracker;
 public class ValidateInput implements Input {
     private final Input input;
 
-    public ValidateInput(final Input input) {
+    ValidateInput(final Input input) {
         this.input = input;
     }
     @Override

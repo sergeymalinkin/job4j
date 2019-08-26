@@ -1,24 +1,9 @@
 package ru.job4j.tracker;
 
-public class EditItem implements UserAction {
-    private int key;
-    private String info;
-
+public class EditItem extends BaseAction {
     EditItem(int key, String info) {
-        this.key = key;
-        this.info = info;
+        super(key, info);
     }
-
-    @Override
-    public int key() {
-        return this.key;
-    }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), this.info);
-    }
-
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------- Замена заявки ---------------");

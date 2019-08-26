@@ -1,21 +1,8 @@
 package ru.job4j.tracker;
 
-public class AddItem implements UserAction {
-    private int key;
-    private String info;
-
-    @Override
-    public int key() {
-        return this.key;
-    }
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), this.info);
-    }
-
+public class AddItem extends BaseAction {
     AddItem(int key, String info) {
-        this.key = key;
-        this.info = info;
+        super(key, info);
     }
     @Override
     public void execute(Input input, Tracker tracker) {
