@@ -2,4 +2,5 @@ checks:
     java: true
 build:
     environment:
-        java: 'java-11'
+        sdkman:
+            - java
