@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 /**
- * @version 2.0
- * @since 24.08.2019
+ * @version 3.0
+ * @since 26.08.2019
  */
 public class StartUI {
     /**
@@ -16,7 +16,7 @@ public class StartUI {
      * Хранилище заявок
      */
     private final Tracker tracker;
-     /**
+    /**
      * Конструтор инициализирующий поля.
      *
      * @param input   ввод данных.
@@ -44,8 +44,14 @@ public class StartUI {
             }
         }
     }
-        public static void main(String[] args) {
-            new StartUI(new ValidateInput(), new Tracker());
-        }
+    public static void main(String[] args) {
+        new StartUI(
+                new ValidateInput(
+                        new ConsoleInput()
+                ),
+                new Tracker()
+        ).init();
+    }
 }
+
 
