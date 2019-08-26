@@ -1,0 +1,5 @@
+checks:
+    java: true
+build:
+    environment:
+        java: 'java-12'
