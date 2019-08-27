@@ -9,7 +9,7 @@
 	чтобы эти проекты все лежали в одной папке ru.job4j. В java обычно используют имя домена, хотя имяможет быть любым. -->
 	<groupId>ru.job4j</groupId>
 	<!-- в артефакте указывают название проекта, например, java-a-to-z или junior -->
-	<!-- artifactId - уникальный ключ нашей библиоткив. Уникальность должна обеспечиваться сочетанием двух ключей groupId
+	<!-- artifactId - уникальный ключ нашей библиотеке. Уникальность должна обеспечиваться сочетанием двух ключей groupId
 	и artifactId. -->
 	<artifactId>junior</artifactId>
 	<!-- здесь мы указываем, как мы собираем проект, например в jar, ear, war или указать pom, если данный pom.xml
@@ -69,21 +69,104 @@
 			<version>1.7.21</version>
 			<scope>test</scope>
 		</dependency>
+<!--		&lt;!&ndash; Spring framework &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-test</artifactId>-->
+<!--			<version>2.5.6</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.data</groupId>-->
+<!--			<artifactId>spring-data-mongodb</artifactId>-->
+<!--			<version>2.1.9.RELEASE</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-core</artifactId>-->
+<!--			<version>5.1.9.RELEASE</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-context</artifactId>-->
+<!--			<version>5.1.9.RELEASE</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-aop</artifactId>-->
+<!--			<version>5.1.9.RELEASE</version>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-context-support</artifactId>-->
+<!--			<version>5.1.9.RELEASE</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-tx</artifactId>-->
+<!--			<version>5.1.9.RELEASE</version>-->
+<!--		</dependency>-->
+
+
+<!--		&lt;!&ndash; Hibernate framework &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-core</artifactId>-->
+<!--			<version>5.3.8.Final</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-entitymanager</artifactId>-->
+<!--			<version>5.3.6.Final</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>ejb3-persistence</artifactId>-->
+<!--			<version>1.0.1.GA</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-annotations</artifactId>-->
+<!--			<version>3.5.6-Final</version>-->
+<!--		</dependency>-->
+<!--		&lt;!&ndash; Hibernate library dependency start &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>dom4j</groupId>-->
+<!--			<artifactId>dom4j</artifactId>-->
+<!--			<version>1.6.1</version>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>antlr</groupId>-->
+<!--			<artifactId>antlr</artifactId>-->
+<!--			<version>2.7.7</version>-->
+<!--		</dependency>-->
+<!--		&lt;!&ndash; Hibernate library dependency end &ndash;&gt;-->
 	</dependencies>
 	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-remote-resources-plugin</artifactId>
-					<version>1.6.0</version>
-					<dependencies>
-						<dependency>
-							<groupId>org.apache.maven.shared</groupId>
-							<artifactId>maven-filtering</artifactId>
-							<version>1.2</version>
-						</dependency>
-					</dependencies>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-artifacts</id>
+							<phase>package</phase>
+							<goals>
+								<goal>attach-artifact</goal>
+							</goals>
+							<configuration>
+								<artifacts>
+									<artifact>
+										<file>target/features/features.xml</file>
+										<type>xml</type>
+										<classifier>features</classifier>
+									</artifact>
+								</artifacts>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 				<!-- плагин maven-site -->
 				<plugin>
@@ -131,10 +214,10 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.1</version>
 					<configuration>
-						<source>12</source>
-						<target>12</target>
-						<testSource>12</testSource>
-						<testTarget>12</testTarget>
+						<source>11</source>
+						<target>11</target>
+						<testSource>11</testSource>
+						<testTarget>11</testTarget>
 						<showWarnings>true</showWarnings>
 						<showDeprecation>true</showDeprecation>
 					</configuration>
