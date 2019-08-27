@@ -4,11 +4,7 @@ package ru.job4j.tracker;
  * @since 26.08.2019
  */
 public class StartUI {
-    protected boolean working = true;
-    /**
-     * Константа для выхода из цикла.
-     */
-    private static final int EXIT = Integer.parseInt("6");
+    private boolean exit = true;
     /**
      * Получение данных от пользователя.
      */
@@ -29,24 +25,20 @@ public class StartUI {
         this.init();
     }
     private void init() {
-        boolean exit = false;
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions(this);
         int[] range = new int[menu.getActionsLength()];
         for (int i = 0; i < menu.getActionsLength(); i++) {
             range[i] = i;
         }
-        while (!exit) {
+        do {
             menu.show();
             int answer = input.ask("Введите пункт меню : ", range);
             menu.select(answer);
-            if (EXIT == answer) {
-                exit = true;
-            }
-        }
+        } while (this.exit);
     }
-    public void stop() {
-        this.working = false;
+    void stop() {
+        this.exit = false;
     }
     public static void main(String[] args) {
         new StartUI(
