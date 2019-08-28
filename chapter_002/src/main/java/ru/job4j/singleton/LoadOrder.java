@@ -3,7 +3,10 @@ package ru.job4j.singleton;
 import org.jetbrains.annotations.Contract;
 
 public class LoadOrder {
-    private static String STATIC_FIELD = echo("static field");
+    /**
+     *
+     */
+    private static String staticfield = echo("static field");
 
     private static final String STATIC_FINAL_FIELD = echo("static final field");
     static {
