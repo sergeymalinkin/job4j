@@ -1,16 +1,20 @@
 language: java
+
 jdk:
   - openjdk12
+
 sudo: false
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - cat codecov.yml | curl --data-binary @- https://codecov.io/validate
+
 notifications:
   email:
     recipients:
       -sloyz@ya.ru
     on_success: never # default: change
     on_failure: always # default: always
+
 env:
   global:
     - CODECOV_TOKEN="fd1ca63c-c885-4ee2-8959-a960a4d09689"
