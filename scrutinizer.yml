@@ -5,7 +5,7 @@ build:
         override:
           - command: mvn clean package
             coverage:
-              file: '[C:\Tools\Reports\Jacoco]'
+              file: '[repo]'
               format: 'jacoco'
       environment:
         sdkman:
