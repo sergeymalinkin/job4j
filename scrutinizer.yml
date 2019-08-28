@@ -1,0 +1,7 @@
+build:
+  nodes:
+    your-node-name:
+      environment:
+        sdkman:
+          - java@12.0.2-open
+          - maven
