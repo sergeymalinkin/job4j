@@ -1,10 +1,10 @@
 build:
   nodes:
-#    tests-with-coverage:
+    tests-with-coverage:
       tests:
         override:
           - command: mvn clean package
-#            coverage:
+            coverage:
 #              file: jacoco.xml
 #              format: jacoco
       environment:
