@@ -7,7 +7,6 @@ build:
           - maven
     tests-with-coverage:
       tests:
-        override:
           - command: mvn clean package
             coverage:
               file: '[path-to-coverage-reports]'
