@@ -1,6 +1,12 @@
 build:
   nodes:
-    your-node-name:
+    tests-with-coverage:
+      tests:
+        override:
+          - command: mvn clean package
+            coverage:
+              file: '[C:\Tools\Reports\Jacoco]'
+              format: 'jacoco'
       environment:
         sdkman:
           - java@12.0.2-open
