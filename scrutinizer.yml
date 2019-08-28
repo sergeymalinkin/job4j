@@ -5,8 +5,8 @@ build:
         override:
           - command: mvn clean package
             coverage:
-#              file: jacoco.xml
-#              format: jacoco
+              file: jacococ.xml
+              format: jacoco
       environment:
         sdkman:
           - java@12.0.2-open
