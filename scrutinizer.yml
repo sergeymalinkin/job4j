@@ -4,10 +4,4 @@ build:
       environment:
         sdkman:
           - java@12.0.2-open
-          - maven
-    tests-with-coverage:
-      tests:
-          - command: mvn clean package
-            coverage:
-              file: '[path-to-coverage-reports]'
-              format: 'jacoco'
+
