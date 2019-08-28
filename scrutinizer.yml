@@ -5,3 +5,9 @@ build:
         sdkman:
           - java@12.0.2-open
           - maven
+    dependencies:
+      override:
+#        - your-command
+
+        # or use a "dummy" command like
+        - true
