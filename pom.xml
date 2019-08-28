@@ -39,9 +39,34 @@
 		<module>chapter_001</module>
 		<module>chapter_002</module>
 		<module>puzzle</module>
+		<module>chess</module>
 	</modules>
 	<!-- подключим сторонние библиотеки, которые будут нужны в проекте -->
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>12.0.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-graphics -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics</artifactId>
+			<version>12.0.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-base</artifactId>
+			<version>12.0.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>12.0.2</version>
+		</dependency>
 		<!-- библиотека для тестирования -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>
@@ -145,17 +170,17 @@
 	</dependencies>
 	<build>
 		<plugins>
-<!--			&lt;!&ndash; плагин maven-site &ndash;&gt;-->
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-site-plugin</artifactId>-->
-<!--				<version>3.7.1</version>-->
-<!--			</plugin>-->
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-project-info-reports-plugin</artifactId>-->
-<!--				<version>3.0.0</version>-->
-<!--			</plugin>-->
+			<!--			&lt;!&ndash; плагин maven-site &ndash;&gt;-->
+			<!--			<plugin>-->
+			<!--				<groupId>org.apache.maven.plugins</groupId>-->
+			<!--				<artifactId>maven-site-plugin</artifactId>-->
+			<!--				<version>3.7.1</version>-->
+			<!--			</plugin>-->
+			<!--			<plugin>-->
+			<!--				<groupId>org.apache.maven.plugins</groupId>-->
+			<!--				<artifactId>maven-project-info-reports-plugin</artifactId>-->
+			<!--				<version>3.0.0</version>-->
+			<!--			</plugin>-->
 			<!-- плагин JaCoCo -->
 			<plugin>
 				<!-- версия плагина -->
@@ -179,22 +204,22 @@
 				</executions>
 			</plugin>
 			<!-- плагины maven -->
-<!--			<plugin>-->
-<!--				<artifactId>maven-surefire-plugin</artifactId>-->
-<!--				<version>3.0.0-M1</version>-->
-<!--				<configuration>-->
-<!--					<skip>true</skip>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
+			<!--			<plugin>-->
+			<!--				<artifactId>maven-surefire-plugin</artifactId>-->
+			<!--				<version>3.0.0-M1</version>-->
+			<!--				<configuration>-->
+			<!--					<skip>true</skip>-->
+			<!--				</configuration>-->
+			<!--			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-<!--					<source>12</source>-->
-<!--					<target>12</target>-->
-<!--					<testSource>11</testSource>-->
-<!--					<testTarget>11</testTarget>-->
+					<!--					<source>12</source>-->
+					<!--					<target>12</target>-->
+					<!--					<testSource>11</testSource>-->
+					<!--					<testTarget>11</testTarget>-->
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
 				</configuration>
