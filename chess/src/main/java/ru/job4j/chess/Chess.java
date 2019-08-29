@@ -16,12 +16,15 @@ import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 import ru.job4j.chess.firuges.black.*;
 import ru.job4j.chess.firuges.white.*;
-
+/**
+ *  @author Sergey Malinkin (sloyz@ya.ru)
+ *  @version 1.0
+ *  @since 28.08.2019
+ */
 public class Chess extends Application {
     private static final String JOB4J = "Шахматы на www.job4j.ru";
     private final int size = 8;
     private final Logic logic = new Logic();
-
     private Rectangle buildRectangle(int x, int y, int size, boolean white) {
         Rectangle rect = new Rectangle();
         rect.setX(x * size);
@@ -36,7 +39,6 @@ public class Chess extends Application {
         rect.setStroke(Color.BLACK);
         return rect;
     }
-
     private Rectangle buildFigure(int x, int y, int size, String image) {
         Rectangle rect = new Rectangle();
         rect.setX(x);
@@ -71,7 +73,6 @@ public class Chess extends Application {
         );
         return rect;
     }
-
     private Group buildGrid() {
         Group panel = new Group();
         for (int y = 0; y != this.size; y++) {
@@ -83,7 +84,6 @@ public class Chess extends Application {
         }
         return panel;
     }
-
     @Override
     public void start(Stage stage) {
         BorderPane border = new BorderPane();
@@ -104,7 +104,6 @@ public class Chess extends Application {
         stage.show();
         this.refresh(border);
     }
-
     private void refresh(final BorderPane border) {
         Group grid = this.buildGrid();
         this.logic.clean();
@@ -112,7 +111,6 @@ public class Chess extends Application {
         this.buildWhiteTeam(grid);
         this.buildBlackTeam(grid);
     }
-
     private void buildBlackTeam(Group grid) {
         this.add(new PawnBlack(Cell.A7), grid);
         this.add(new PawnBlack(Cell.B7), grid);
@@ -131,7 +129,6 @@ public class Chess extends Application {
         this.add(new KnightBlack(Cell.G8), grid);
         this.add(new RookBlack(Cell.H8), grid);
     }
-
     public void buildWhiteTeam(Group grid) {
         this.add(new PawnWhite(Cell.A2), grid);
         this.add(new PawnWhite(Cell.B2), grid);
@@ -150,7 +147,6 @@ public class Chess extends Application {
         this.add(new KnightWhite(Cell.G1), grid);
         this.add(new RookWhite(Cell.H1), grid);
     }
-
     public void add(Figure figure, Group grid) {
         this.logic.add(figure);
         Cell position = figure.position();
@@ -163,7 +159,6 @@ public class Chess extends Application {
                 )
         );
     }
-
     private Cell findBy(double graphX, double graphY) {
         Cell rst = Cell.A1;
         int x = (int) graphX / 40;
