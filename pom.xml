@@ -40,7 +40,8 @@
 		<module>chapter_002</module>
 		<module>puzzle</module>
 		<module>chess</module>
-	</modules>
+        <module>chapter_003</module>
+    </modules>
 	<!-- подключим сторонние библиотеки, которые будут нужны в проекте -->
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
