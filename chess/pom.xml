@@ -10,41 +10,41 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>chess</artifactId>
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-                <dependencies>
-                <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-fxml</artifactId>
-                    <version>12.0.2</version>
-                </dependency>
-                <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-graphics -->
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-graphics</artifactId>
-                    <version>12.0.2</version>
-                </dependency>
-                <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-base</artifactId>
-                    <version>12.0.2</version>
-                </dependency>
-                <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
-                <dependency>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>javafx-controls</artifactId>
-                    <version>12.0.2</version>
-                </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <source>1.8</source>-->
+<!--                    <target>1.8</target>-->
+<!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
+<!--                <dependencies>-->
+<!--                &lt;!&ndash; https://mvnrepository.com/artifact/org.openjfx/javafx-fxml &ndash;&gt;-->
+<!--                <dependency>-->
+<!--                    <groupId>org.openjfx</groupId>-->
+<!--                    <artifactId>javafx-fxml</artifactId>-->
+<!--                    <version>12.0.2</version>-->
+<!--                </dependency>-->
+<!--                &lt;!&ndash; https://mvnrepository.com/artifact/org.openjfx/javafx-graphics &ndash;&gt;-->
+<!--                <dependency>-->
+<!--                    <groupId>org.openjfx</groupId>-->
+<!--                    <artifactId>javafx-graphics</artifactId>-->
+<!--                    <version>12.0.2</version>-->
+<!--                </dependency>-->
+<!--                &lt;!&ndash; https://mvnrepository.com/artifact/org.openjfx/javafx-base &ndash;&gt;-->
+<!--                <dependency>-->
+<!--                    <groupId>org.openjfx</groupId>-->
+<!--                    <artifactId>javafx-base</artifactId>-->
+<!--                    <version>12.0.2</version>-->
+<!--                </dependency>-->
+<!--                &lt;!&ndash; https://mvnrepository.com/artifact/org.openjfx/javafx-controls &ndash;&gt;-->
+<!--                <dependency>-->
+<!--                    <groupId>org.openjfx</groupId>-->
+<!--                    <artifactId>javafx-controls</artifactId>-->
+<!--                    <version>12.0.2</version>-->
+<!--                </dependency>-->
+<!--                </dependencies>-->
+<!--&lt;!&ndash;            </plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;        </plugins>&ndash;&gt;-->
     </build>
 </project>
