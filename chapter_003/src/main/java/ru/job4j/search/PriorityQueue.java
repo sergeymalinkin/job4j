@@ -1,9 +1,10 @@
 package ru.job4j.search;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
- * @version 1.0
+ * @version 2.0
  * @since 02.09.2019
  */
 class PriorityQueue {
@@ -14,17 +15,16 @@ class PriorityQueue {
      * @param task задача
      */
     void put(Task task) {
-        int i = 0;
-        while (i < this.tasks.size()) {
-            if (task.getPriority() < this.tasks.get(i).getPriority()) {
-                this.tasks.add(i, task);
-                return;
+        ListIterator<Task> liter = tasks.listIterator();
+        var count = tasks.size();
+        for (var index = 0; index < tasks.size(); index++) {
+            if (task.getPriority() < liter.next().getPriority()) {
+                count = index;
+                break;
             }
-            i++;
         }
-        this.tasks.add(task);
+        tasks.add(count, task);
     }
-
     Task take() {
         return this.tasks.poll();
     }
