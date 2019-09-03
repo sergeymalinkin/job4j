@@ -1,4 +1,4 @@
-package ru.job.list;
+package ru.job4j.list;
 
 import java.util.List;
 /**

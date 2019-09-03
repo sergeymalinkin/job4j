@@ -1,4 +1,4 @@
-package ru.job.search;
+package ru.job4j.search;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 1.0
@@ -29,3 +29,4 @@ class Person {
         return address;
     }
 }
+

@@ -1,14 +1,9 @@
-package ru.job.search;
-
+package ru.job4j.search;
 import org.junit.Test;
 import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-/**
- * @author Sergey Malinkin (sloyz@ya.ru)
- * @version 1.0
- * @since 02.09.2019
- */
+
 public class PhoneDictionaryTest {
     @Test
     public void whenFindByName() {

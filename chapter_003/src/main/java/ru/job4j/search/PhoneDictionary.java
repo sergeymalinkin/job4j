@@ -1,4 +1,4 @@
-package ru.job.search;
+package ru.job4j.search;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,3 +33,4 @@ class PhoneDictionary {
         return result;
     }
 }
+

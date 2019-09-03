@@ -1,4 +1,4 @@
-package ru.job.search;
+package ru.job4j.search;
 
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
