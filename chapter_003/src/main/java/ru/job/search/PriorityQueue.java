@@ -1,7 +1,6 @@
 package ru.job.search;
 
 import java.util.LinkedList;
-
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 1.0
@@ -10,18 +9,23 @@ import java.util.LinkedList;
 class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
     /**
-     * Метод должен вставлять в нужную позицию элемент.
-     * Позиция определять по полю приоритет.
-     * Для вставики использовать add(int index, E value)
+     * Метод вставляет элемент в нужную позицию.
+     * Позиция определятся по полю приоритет.
      * @param task задача
      */
     void put(Task task) {
-        //добавить вставку в связанный список.
+        int i = 0;
+        while (i < this.tasks.size()) {
+            if (task.getPriority() < this.tasks.get(i).getPriority()) {
+                this.tasks.add(i, task);
+                return;
+            }
+            i++;
+        }
+        this.tasks.add(task);
     }
 
     Task take() {
         return this.tasks.poll();
     }
 }
-
-
