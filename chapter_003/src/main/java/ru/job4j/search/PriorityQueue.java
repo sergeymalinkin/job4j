@@ -16,8 +16,8 @@ class PriorityQueue {
      */
     void put(Task task) {
         ListIterator<Task> liter = tasks.listIterator();
-        var count = tasks.size();
-        for (var index = 0; index < tasks.size(); index++) {
+        int count = tasks.size();
+        for (int index = 0; index < tasks.size(); index++) {
             if (task.getPriority() < liter.next().getPriority()) {
                 count = index;
                 break;
