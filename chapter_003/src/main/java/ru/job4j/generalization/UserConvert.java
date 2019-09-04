@@ -14,7 +14,7 @@ class UserConvert {
     static HashMap<Integer, User> process(List<User> list) {
         HashMap<Integer, User> result = new HashMap<>();
         for (User user : list) {
-            result.put(user.getId(), new User(user.getId(), user.getName()));
+            result.put(user.getId(), user);
         }
         return result;
     }

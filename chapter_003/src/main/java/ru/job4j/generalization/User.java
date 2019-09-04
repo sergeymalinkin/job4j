@@ -8,15 +8,16 @@ import java.util.Objects;
 public class User {
     private Integer id;
     private String name;
-//    private String city;
+    private String city;
     /**
      * Конструктор класса User.
      * @param id   уникальный номер.
      * @param name имя.
      */
-    User(Integer id, String name) {
+    User(Integer id, String name, String city) {
         this.id = id;
         this.name = name;
+        this.city = city;
     }
     /**
      * Геттеры класса User.
@@ -26,8 +27,9 @@ public class User {
     }
 
     String getName() {
-        return name;
-    }
+        return name; }
+    String getCity() {
+        return city; }
     /**
      * Переопределяем equals и hashCode, для корректного сравнения объектов.
      */
@@ -42,10 +44,12 @@ public class User {
         User user = (User) o;
         return id.equals(user.id)
                 &&
-                Objects.equals(name, user.name);
+                Objects.equals(name, user.name)
+                &&
+                Objects.equals(city, user.city);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, city);
     }
 }
