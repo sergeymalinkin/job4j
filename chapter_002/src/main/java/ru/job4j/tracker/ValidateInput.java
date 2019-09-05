@@ -1,11 +1,17 @@
 package ru.job4j.tracker;
+import java.util.List;
+import static java.lang.String.format;
 /**
- * класс ValidateInput, наследует ConsoleInput. В нем переопределен метод ask таким образом,
- * что бы обрабатывались исключительные ситуации (при помощи блоков try { … } catch( … ) { … }).
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 3.0
+ * @since 05.09.2019.
  */
 public class ValidateInput implements Input {
+    /**
+     * класс ValidateInput, наследует ConsoleInput. В нем переопределен метод ask таким образом,
+     * что бы обрабатывались исключительные ситуации (при помощи блоков try { … } catch( … ) { … }).
+     */
     private final Input input;
-
     ValidateInput(final Input input) {
         this.input = input;
     }
@@ -13,25 +19,25 @@ public class ValidateInput implements Input {
     public String ask(String question) {
        return this.input.ask(question);
     }
-
-    public int ask(String question, int[] range) {
+    @Override
+    public int ask(String question, List<Integer> range) {
                 /*
           Если ошибок нет, то возвращается номер нажатой клавищи.
           Если исключительная ситуация, то возвращается ошибка -1.
          */
+        //value - answer
         boolean invalid = true;
-        int value = -1;
+        int answer = -1;
         do {
             try {
-                value = this.input.ask(question, range);
+                answer = this.input.ask(question, range);
                 invalid = false;
             } catch (MenuOutException moe) {
-                System.out.println("Пожалуйста, выберите пункт меню.");
+                System.out.print(format("Пожалуйста, выберите пункт меню.%n"));
             } catch (NumberFormatException nfe) {
-                System.out.println("Пожалуйста, введите корректное значение.");
+                System.out.print(format("Пожалуйста, введите корректное значение.%n"));
             }
         } while (invalid);
-        return value;
+        return answer;
     }
 }
-

@@ -1,5 +1,10 @@
 package ru.job4j.tracker;
-
+import java.util.List;
+/**
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 3.0
+ * @since 05.09.2019.
+ */
 public class StubInput implements Input {
     /**
      * Это поле содержит последовательность ответов пользователя.
@@ -10,15 +15,15 @@ public class StubInput implements Input {
      * desc - описание заявки
      * y - выйти из трекера.
      */
-    private final String[] value;
+    private List<String> answers;
     /**
      * Поле считает количество вызовом метода ask.
      * При каждом вызове надо передвинуть указатель на новое число.
      */
     private int position;
 
-    StubInput(final String[] value) {
-        this.value = value;
+    StubInput(List<String> answers) {
+        this.answers = answers;
     }
     /**
      * Давайте рассмотрим, как работает этот метод.
@@ -30,14 +35,15 @@ public class StubInput implements Input {
      */
     @Override
     public String ask(String question) {
-        return this.value[this.position++];
+        return this.answers.get(position++);
     }
 
-    public int ask(String question, int[] range) {
-        int key = Integer.parseInt(this.value[this.position++]);
+    @Override
+    public int ask(String question, List<Integer> range) {
         boolean exist = false;
-        for (int value : range) {
-            if (value == key) {
+        int key = Integer.parseInt(this.answers.get(position++));
+        for (int number : range) {
+            if (number == key) {
                 exist = true;
                 break;
             }
@@ -48,4 +54,3 @@ public class StubInput implements Input {
         return key;
     }
 }
-

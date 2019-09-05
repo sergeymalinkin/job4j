@@ -1,21 +1,21 @@
 package ru.job4j.tracker;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 /**
- * @author Sergey Malinkin(sloyz@yandex.ru)
- * @version 1.0
- * @since 26.08.2019.
- * */
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 3.0
+ * @since 05.09.2019.
+ */
 public class ValidateInputTest {
     private final ByteArrayOutputStream mem = new ByteArrayOutputStream();
     private final PrintStream out = System.out;
-
     @Before
     public void loadMem() {
         System.setOut(new PrintStream(this.mem));
@@ -25,11 +25,14 @@ public class ValidateInputTest {
         System.setOut(this.out);
     }
     @Test
-    public void whenInvalidInput() {
-        ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"invalid", "1"})
-        );
-        input.ask("Ввод", new int[] {1});
+    public void whenInvalidThenCorrectInput() {
+        List<String> list = new ArrayList<>();
+        list.add("q");
+        list.add("1");
+        List<Integer> listInt = new ArrayList<>();
+        listInt.add(1);
+        ValidateInput input = new ValidateInput(new StubInput(list));
+        input.ask("Ввод", listInt);
         assertThat(
                 this.mem.toString(),
                 is(
@@ -38,11 +41,14 @@ public class ValidateInputTest {
         );
     }
     @Test
-    public void whenInvalidInputKey() {
-        ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"-1", "1"})
-        );
-        input.ask("Ввод", new int[] {1});
+    public void whenInvalidInput() {
+        List<String> list = new ArrayList<>();
+        list.add("-1");
+        list.add("1");
+        List<Integer> listInt = new ArrayList<>();
+        listInt.add(1);
+        ValidateInput input = new ValidateInput(new StubInput(list));
+        input.ask("Ввод", listInt);
         assertThat(
                 this.mem.toString(),
                 is(
@@ -51,4 +57,3 @@ public class ValidateInputTest {
         );
     }
 }
-

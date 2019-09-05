@@ -17,12 +17,13 @@ public class ConsoleInput implements Input {
      * @param range    - диапазон допустимых занчений меню
      * @return - возврат числового значения меню
      */
+    //value - answer
     @Override
-    public int ask(String question, int[] range) {
+    public int ask(String question, List<Integer> range) {
         int key = Integer.parseInt(this.ask(question));
         boolean exist = false;
-        for (int value : range) {
-            if (value == key) {
+        for (int answer : range) {
+            if (answer == key) {
                 exist = true;
                 break;
             }

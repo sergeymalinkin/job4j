@@ -1,114 +1,101 @@
 package ru.job4j.tracker;
-
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 /**
- * @version 2.0
- * @since 16.08.2019.
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 3.0
+ * @since 05.09.2019.
  */
 public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private Item[] items = new Item[100];
-    /**
-     * Указатель ячейки для новой заявки.
-     */
-    private int position = 0;
+    private final List<Item> items = new ArrayList<>();
     /**
      * Случайное значение для генерации id .
      */
     private static final Random RN = new Random();
-
     /**
-     * Метод реализующий добавление заявки в хранилище
-     *
-     * @return id.
+     * Метод, реализующий добавление заявки в хранилище
+     * @param item новая завка
      */
     Item add(Item item) {
         item.setId(this.generateId());
-        this.items[this.position++] = item;
+        this.items.add(item);
         return item;
     }
     /**
      * Метод генерирует уникальный ключ для заявки.
-     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
-     *
-     * @return Уникальный ключ.
+     * @return уникальный ключ.
      */
     private String generateId() {
-        //Реализовать метод генерации.
         return String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
     }
     /**
      * Метод реализующий редактирование заявки в хранилище
-     *
      * @return id.
      */
     boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index < position; index++) {
-            if (items[index] != null && this.items[index].getId().equals(id)) {
+        System.out.println(id);
+        int index = 0;
+        for (Item it : items) {
+            if (it != null && it.getId().equals(id)) {
                 item.setId(id);
-                this.items[index] = item;
+                items.set(index, item);
                 result = true;
                 break;
             }
+            index++;
         }
         return result;
     }
     /**
-     * Метод должен удалить ячейку в массиве.
-     * Для этого необходимо найти ячейку в массиве по id.  Далее сместить все значения
-     * справа от удаляемого элемента - на одну ячейку влево с помощью System.arrayCopy();
+     * Метод, реализующий удаление заявки из хранилища
+     * @param id уникальный ключ заяки.
      */
     boolean delete(String id) {
         boolean result = false;
-        for (int index = 0; index < position; index++) {
-            if (this.items[index].getId().equals(id)) {
+        for (int index = 0; index != items.size(); index++) {
+            if (this.items.get(index).getId().equals(id)) {
+                this.items.remove(index);
                 result = true;
-                System.arraycopy(this.items, index + 1,  this.items, index, position - index);
-                position--;
                 break;
             }
         }
         return result;
     }
     /**
-     * Метод  возвращает копию массива this.items без null элементов;
-     *
-     * @return массив.
+     * Метод, реализущий получение списка всех заявок из хранилища.
+     * @return all items.
      */
-    Item[] findAll() {
-        return Arrays.copyOf(this.items, this.position);
+    ArrayList<Item> findAll() {
+        return new ArrayList<>(items);
     }
     /**
-     * Метод проверяет в цикле все элементы массива this.items, сравнивая name (используя метод getName класса Item)
-     * с аргументом метода String key.
-     * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его;
+     * Метод, реализущий получение списка по имени из хранилища.
+     *  @param key - уникальный ключ заявки.
      */
-    Item[] findByName(String key) {
-        Item[] result = new Item[this.position];
-        int count = 0;
-        for (int index = 0; index != this.position; index++) {
-            if (this.items[index].getName().equals(key)) {
-                result[count] = this.items[index];
-                count++;
+    ArrayList<Item> findByName(String key) {
+        ArrayList<Item> find = new ArrayList<>();
+        for (Item i : items) {
+            if (i.getName().equals(key)) {
+                find.add(i);
             }
         }
-        return Arrays.copyOf(result, count);
+        return find;
     }
-    /**
-     * Метод реализующий поиск заявки в хранилище
-     *
-     * @param id поиск заявки.
-     * @return item.
-     */
-    Item findById(String id) {
+        /**
+         * Метод реализующий поиск заявки в хранилище по id
+         * @param id ключ заявки.
+         * @return result.
+         */
+        Item findById(String id) {
         Item result = null;
-        for (int index = 0; index != this.position; index++) {
-            if (this.items[index].getId().equals(id)) {
-                result = this.items[index];
+        for (Item item : items) {
+            if (item != null && item.getId().equals(id)) {
+                result = item;
                 break;
             }
         }

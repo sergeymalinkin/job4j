@@ -1,9 +1,14 @@
 package ru.job4j.tracker;
 import org.junit.Test;
-import static org.hamcrest.Matchers.is;
+import java.util.ArrayList;
+import java.util.List;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.core.IsNull.nullValue;
-
+/**
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 3.0
+ * @since 05.09.2019.
+ */
 public class TrackerTest {
     /**
      * Тест-метод добавляет заявку и сравнивает с ожидаемым результатом.
@@ -17,7 +22,6 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
-
     /**
      * Тест-метод заменяет заявку и сравнивает с ожидаемым результатом.
      */
@@ -31,19 +35,22 @@ public class TrackerTest {
         tracker.replace(previous.getId(), next);
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
-
     /**
      * Тест-метод осуществляет поиск по ID, и сравнивает с ожидаемым результатом.
      */
     @Test
     public void whenFindItemById() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
-        tracker.add(item);
-        Item result = tracker.findById(item.getId());
-        assertThat(result, is(item));
+        Item previous = new Item("test1", "testDescription", 123L);
+        Item next = new Item("test2", "testDescription", 1234L);
+        tracker.add(previous);
+        tracker.add(next);
+        List<Item> list = new ArrayList<>();
+        list.add(next);
+        String findId = next.getId();
+        Item result  = tracker.findById(findId);
+        assertThat(tracker.findById(findId), is(result));
     }
-
     /**
      * Тест-метод осуществляет поиск всех заявок, и сравнивает с ожидаемым результатом.
      */
@@ -54,11 +61,11 @@ public class TrackerTest {
         Item next = new Item("test2", "testDescription", 1234L);
         tracker.add(previous);
         tracker.add(next);
-        next.setId(previous.getId());
-        Item[] array = {previous, next};
-        assertThat(tracker.findAll(), is(array));
+        List<Item> list = new ArrayList<>();
+        list.add(previous);
+        list.add(next);
+        assertThat(tracker.findAll(), is(list));
     }
-
     /**
      * Тест-метод осуществляет поиск по имени, и сравнивает с ожидаемым результатом.
      */
@@ -69,11 +76,10 @@ public class TrackerTest {
         Item next = new Item("test2", "testDescription", 1234L);
         tracker.add(previous);
         tracker.add(next);
-        Item[] expected = {tracker.findAll()[1]};
-        Item[] result = tracker.findByName("test2");
-        assertThat(result, is(expected));
+        List<Item> list = new ArrayList<>();
+        list.add(next);
+        assertThat(tracker.findByName("test2"), is(list));
     }
-
     /**
      * Тест-метод осуществляет удаление заявки, и сравнивает с ожидаемым результатом.
      */
@@ -84,7 +90,6 @@ public class TrackerTest {
         Item next = new Item("test2", "testDescription", 1234L);
         tracker.add(previous);
         tracker.add(next);
-        tracker.delete(previous.getId());
-        assertThat(tracker.findById(previous.getId()), is(nullValue()));
+        assertThat(tracker.delete(next.getId()), is(true));
     }
 }

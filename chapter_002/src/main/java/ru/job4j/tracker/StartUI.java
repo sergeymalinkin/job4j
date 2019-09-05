@@ -1,4 +1,7 @@
 package ru.job4j.tracker;
+
+import java.util.List;
+
 /**
  * @version 3.0
  * @since 26.08.2019
@@ -27,14 +30,14 @@ public class StartUI {
     private void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions(this);
-        int[] range = new int[menu.getActionsLength()];
-        for (int i = 0; i < menu.getActionsLength(); i++) {
-            range[i] = i;
-        }
+        List<Integer> keys = menu.range();
+//        for (int i = 0; i < menu.getActionsLength(); i++) {
+//            range[i] = i;
+//        }
         do {
             menu.show();
-            int answer = input.ask("Введите пункт меню : ", range);
-            menu.select(answer);
+            int ask = this.input.ask("Введите пункт меню : ", keys);
+            menu.select(ask);
         } while (this.exit);
     }
     void stop() {

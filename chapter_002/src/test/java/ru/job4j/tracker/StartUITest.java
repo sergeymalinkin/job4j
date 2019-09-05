@@ -5,10 +5,17 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
+/**
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 3.0
+ * @since 05.09.2019.
+ */
 public class StartUITest {
+    private Tracker tracker = new Tracker();
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final static String SPLIT_LINE = System.lineSeparator();
@@ -30,17 +37,17 @@ public class StartUITest {
     public void loadOutputBefore() {
         System.setOut(new PrintStream(this.out));
     }
-
     @After
     public void backOutputAfter() {
         System.setOut(this.stdout);
     }
-//
     @Test
     public void whenShowAllItem() {
-        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test1", "desc1"));
-        Input input = new StubInput(new String[]{"1", "6"});
+        List<String> list = new ArrayList<>();
+        Input input = new StubInput(list);
+        list.add("1");
+        list.add("6");
         new StartUI(input, tracker);
         String sb = MENU + SPLIT_LINE
                 +
@@ -57,32 +64,38 @@ public class StartUITest {
     }
     @Test
     public void whenUpdateThenTrackerHasUpdatedItem() {
-        // создаём Tracker
-        Tracker tracker = new Tracker();
-        //Напрямую добавляем заявку
-        Item item = tracker.add(new Item("test name", "desc"));
-        //создаём StubInput с последовательностью действий(производим замену заявки)
-        Input input = new StubInput(new String[]{"2", item.getId(), "test replace", "заменили заявку", "6"});
-        // создаём StartUI и вызываем метод init()
-        new StartUI(input, tracker);
-        // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        Item item = this.tracker.add(new Item("test1", "desc1"));
+        List<String> list = new ArrayList<>();
+        list.add("2");
+        list.add(item.getId());
+        list.add("test replace");
+        list.add("updated");
+        list.add("6");
+        Input input = new StubInput(list);
+        new StartUI(input, this.tracker);
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
     @Test
     public <delete> void whenUserDeleteItemThenTrackerDeleteItem() {
-        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test1", "desc1"));
-        Input input = new StubInput(new String[]{"3", item.getId(), "6"});
-        new StartUI(input, tracker);
-        Item delete = null;
+        List<String> list = new ArrayList<>();
+        list.add("3");
+        list.add(item.getId());
+        list.add("6");
+        Input input = new StubInput(list);
+        new StartUI(input, this.tracker);
+        Item deleteItem = null;
         assertThat(tracker.findById(item.getId()), is((delete) null));
     }
     @Test
     public void whenUserFindsItemByIdThenTrackerFindsItem() {
-        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test1", "desc1"));
-        Input input = new StubInput(new String[]{"4", item.getId(), "6"});
-        new StartUI(input, tracker);
+        List<String> list = new ArrayList<>();
+        list.add("4");
+        list.add(item.getId());
+        list.add("6");
+        Input input = new StubInput(list);
+        new StartUI(input, this.tracker);
         String sb = MENU + SPLIT_LINE
                 +
                 "------------ Поиск заявки по ID -----------------" + SPLIT_LINE
@@ -96,13 +109,15 @@ public class StartUITest {
                 MENU + SPLIT_LINE;
         assertThat(out.toString(), is(sb));
     }
-    //
     @Test
     public void whenFindItemByName() {
-        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test1", "desc1"));
-        Input input = new StubInput(new String[]{"5", item.getName(), "6"});
-        new StartUI(input, tracker);
+        List<String> list = new ArrayList<>();
+        list.add("5");
+        list.add(item.getName());
+        list.add("6");
+        Input input = new StubInput(list);
+        new StartUI(input, this.tracker);
         String sb = MENU + SPLIT_LINE
                 +
                 "------------ Поиск заявки по имени --------------" + SPLIT_LINE

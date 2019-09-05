@@ -1,5 +1,9 @@
 package ru.job4j.tracker;
-
+/**
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 3.0
+ * @since 05.09.2019.
+ */
 public class FindItemById extends BaseAction {
     FindItemById(int key, String info) {
         super(key, info);

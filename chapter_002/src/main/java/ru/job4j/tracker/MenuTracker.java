@@ -27,12 +27,15 @@ class MenuTracker {
         this.tracker = tracker;
     }
     /**
-     * Метод для получения массива меню.
+     * Метод для заполнения массива меню.
      *
-     * @return длину массива
      */
-    int getActionsLength() {
-        return this.actions.size();
+    List<Integer> range() {
+        List<Integer> numbers = new ArrayList<>(actions.size());
+        for (int index = 0; index < actions.size(); index++) {
+            numbers.add(index, actions.get(index).key());
+        }
+        return numbers;
     }
     /**
      * Метод заполняет массив.
