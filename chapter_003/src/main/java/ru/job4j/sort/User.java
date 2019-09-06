@@ -2,7 +2,7 @@ package ru.job4j.sort;
 import java.util.Objects;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
- * @version 1.0
+ * @version 2.0
  * @since 06.09.2019
  */
 public class User implements Comparable<User> {
@@ -13,7 +13,7 @@ public class User implements Comparable<User> {
         this.age = age;
 
     }
-    private int getAge() {
+    int getAge() {
         return age;
     }
     /**
@@ -55,5 +55,9 @@ public class User implements Comparable<User> {
     @Override
     public int hashCode() {
         return Objects.hash(name, age);
+    }
+
+    String getName() {
+        return name;
     }
 }
