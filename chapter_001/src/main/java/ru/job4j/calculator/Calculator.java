@@ -4,41 +4,41 @@ package ru.job4j.calculator;
  * @author Sergey Malinkin (sloyz@ya.ru).
  * @since 26.06.2019.
  */
-
 public class Calculator {
-
     /**
      * Сложение.
-     * @return name - decription: add.
+     * @param first - первое число.
+     * @param second - второе число.
+     * @return name - description: add.
      */
-
     public double add(double first, double second) {
         return first + second;
     }
-
     /**
      * Вычитание.
+     * @param first - первое число.
+     * @param second - второе число.
      * @return name - decription: subtract.
      */
-
     public double subtract(double first, double second) {
         return first - second;
     }
-
     /**
      * Деление.
-     * @return name - decription: div.
+     * @param first - первое число.
+     * @param second - второе число.
+     * @return name - description: div.
      */
     public double div(double first, double second) {
         return first / second;
     }
-
     /**
      * Умножение.
-     * @return name - decription: multiple.
+     * @param first - первое число.
+     * @param second - второе число.
+     * @return name - description: multiple.
      */
     public double multiple(double first, double second) {
         return first * second;
     }
-
 }

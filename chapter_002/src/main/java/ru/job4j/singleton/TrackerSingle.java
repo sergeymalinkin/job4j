@@ -1,15 +1,14 @@
 package ru.job4j.singleton;
 
-import org.jetbrains.annotations.Contract;
 import ru.job4j.tracker.Item;
 
 public class TrackerSingle {
 
-    @Contract(pure = true)
+//    @Contract(pure = true)
     private TrackerSingle() {
     }
 
-    @org.jetbrains.annotations.Contract(pure = true)
+//    @org.jetbrains.annotations.Contract(pure = true)
     static TrackerSingle getInstance() {
         return Holder.INSTANCE;
     }

@@ -1,6 +1,6 @@
 package ru.job4j.singleton;
 
-import org.jetbrains.annotations.Contract;
+//import org.jetbrains.annotations.Contract;
 
 public class LoadOrder {
     /**
@@ -25,7 +25,7 @@ public class LoadOrder {
         echo("constructor " + msg);
     }
 
-    @Contract("_ -> param1")
+//    @Contract("_ -> param1")
     private static String echo(String text) {
         System.out.println(text);
         return text;

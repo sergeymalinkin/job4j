@@ -3,15 +3,15 @@ package ru.job4j.array;
 /**
  * Обертка над строкой.
  */
-public class ArrayChar {
+class ArrayChar {
 
     /**
      * Проверяет, что слово начинается с префикса.
-     *
+     * @param word слово.
      * @param prefix префикс.
-     * @return если слово начинается с префикса
+     * @return result если слово начинается с префикса.
      */
-    public boolean startsWith(String word, String prefix) {
+    boolean startsWith(String word, String prefix) {
         boolean result = true;
         char[] pref = prefix.toCharArray();
         char[] wrd = word.toCharArray();

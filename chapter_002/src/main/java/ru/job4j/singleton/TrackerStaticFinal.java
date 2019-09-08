@@ -1,6 +1,5 @@
 package ru.job4j.singleton;
 
-import org.jetbrains.annotations.Contract;
 import ru.job4j.tracker.Tracker;
 
 class TrackerStaticFinal {
@@ -11,7 +10,7 @@ class TrackerStaticFinal {
     private TrackerStaticFinal() {
     }
 
-    @Contract(pure = true)
+//    @Contract(pure = true)
     static TrackerStaticFinal getInstance() {
         return INSTANCE;
     }
