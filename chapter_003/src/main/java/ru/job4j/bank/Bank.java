@@ -15,15 +15,11 @@ class Bank {
      */
     private Map<User, List<Account>> bank = new HashMap<>();
     /**
-     * База данных всех счетов клиентов.
-     */
-    private List<Account> accounts = new ArrayList<>();
-    /**
      * Метод добавления клиента в базу.
      * @param user - клиент.
      */
     void addUser(User user) {
-        this.bank.putIfAbsent(user, this.accounts);
+        this.bank.putIfAbsent(user, new ArrayList<>());
     }
     /**
      * Метод удаления клиента из базы.
@@ -53,12 +49,8 @@ class Bank {
      *  @param account - счет клиента.
      */
      void addAccountToUser(String passport, Account account) {
-        for (User user : this.bank.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                this.accounts.add(account);
-                break;
-            }
-        }
+         List<Account> accounts = this.bank.get(this.getUserById(passport));
+         accounts.add(account);
     }
     /**
      * Метод удаляет один счёт пользователя.
@@ -66,10 +58,10 @@ class Bank {
      * @param account - счет клиента.
      */
     void deleteAccountFromUser(String passport, Account account) {
-        for (User user : this.bank.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                this.accounts.remove(account);
-                break;
+        List<Account> accounts = this.bank.get(this.getUserById(passport));
+        for (Account value : accounts) {
+            if (value.equals(account)) {
+                accounts.remove(value);
             }
         }
     }
