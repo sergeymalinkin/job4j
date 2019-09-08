@@ -24,9 +24,10 @@ class Bank {
     /**
      * Метод удаления клиента из базы.
      * @param user - клиент.
+     * @return возвращает true если клиент удален из базы, иначе false
      */
-    void deleteUser(User user) {
-        this.bank.remove(user);
+    boolean deleteUser(User user) {
+        return null != this.bank.remove(user);
     }
     /**
      * Метод поиска клиента по Id
