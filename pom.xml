@@ -31,8 +31,8 @@
 		<maven.compiler.target>12</maven.compiler.target>
 		<!-- кодировка -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<source>11</source>
-		<target>11</target>
+		<source>12</source>
+		<target>12</target>
 	</properties>
 	<!-- подключим все подпроекты (дочерние pom) -->
 	<modules>
@@ -40,35 +40,11 @@
 		<module>chapter_002</module>
 		<module>puzzle</module>
 		<module>chess</module>
-        <module>chapter_003</module>
-        <module>chapter_004</module>
-    </modules>
+		<module>chapter_003</module>
+		<module>chapter_004</module>
+	</modules>
 	<!-- подключим сторонние библиотеки, которые будут нужны в проекте -->
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-fxml</artifactId>
-			<version>12.0.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-graphics -->
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-graphics</artifactId>
-			<version>12.0.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-base</artifactId>
-			<version>12.0.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
-			<version>12.0.2</version>
-		</dependency>
 		<!-- библиотека для тестирования -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>
@@ -96,93 +72,20 @@
 			<version>1.7.21</version>
 			<scope>test</scope>
 		</dependency>
-		<!--		&lt;!&ndash; Spring framework &ndash;&gt;-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework</groupId>-->
-		<!--			<artifactId>spring-test</artifactId>-->
-		<!--			<version>2.5.6</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework.data</groupId>-->
-		<!--			<artifactId>spring-data-mongodb</artifactId>-->
-		<!--			<version>2.1.9.RELEASE</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework</groupId>-->
-		<!--			<artifactId>spring-core</artifactId>-->
-		<!--			<version>5.1.9.RELEASE</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework</groupId>-->
-		<!--			<artifactId>spring-context</artifactId>-->
-		<!--			<version>5.1.9.RELEASE</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework</groupId>-->
-		<!--			<artifactId>spring-aop</artifactId>-->
-		<!--			<version>5.1.9.RELEASE</version>-->
-		<!--		</dependency>-->
-
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework</groupId>-->
-		<!--			<artifactId>spring-context-support</artifactId>-->
-		<!--			<version>5.1.9.RELEASE</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework</groupId>-->
-		<!--			<artifactId>spring-tx</artifactId>-->
-		<!--			<version>5.1.9.RELEASE</version>-->
-		<!--		</dependency>-->
-
-
-		<!--		&lt;!&ndash; Hibernate framework &ndash;&gt;-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.hibernate</groupId>-->
-		<!--			<artifactId>hibernate-core</artifactId>-->
-		<!--			<version>5.3.8.Final</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.hibernate</groupId>-->
-		<!--			<artifactId>hibernate-entitymanager</artifactId>-->
-		<!--			<version>5.3.6.Final</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.hibernate</groupId>-->
-		<!--			<artifactId>ejb3-persistence</artifactId>-->
-		<!--			<version>1.0.1.GA</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.hibernate</groupId>-->
-		<!--			<artifactId>hibernate-annotations</artifactId>-->
-		<!--			<version>3.5.6-Final</version>-->
-		<!--		</dependency>-->
-		<!--		&lt;!&ndash; Hibernate library dependency start &ndash;&gt;-->
-		<!--		<dependency>-->
-		<!--			<groupId>dom4j</groupId>-->
-		<!--			<artifactId>dom4j</artifactId>-->
-		<!--			<version>1.6.1</version>-->
-		<!--		</dependency>-->
-
-		<!--		<dependency>-->
-		<!--			<groupId>antlr</groupId>-->
-		<!--			<artifactId>antlr</artifactId>-->
-		<!--			<version>2.7.7</version>-->
-		<!--		</dependency>-->
-		<!--		&lt;!&ndash; Hibernate library dependency end &ndash;&gt;-->
 	</dependencies>
 	<build>
 		<plugins>
-			<!--			&lt;!&ndash; плагин maven-site &ndash;&gt;-->
-			<!--			<plugin>-->
-			<!--				<groupId>org.apache.maven.plugins</groupId>-->
-			<!--				<artifactId>maven-site-plugin</artifactId>-->
-			<!--				<version>3.7.1</version>-->
-			<!--			</plugin>-->
-			<!--			<plugin>-->
-			<!--				<groupId>org.apache.maven.plugins</groupId>-->
-			<!--				<artifactId>maven-project-info-reports-plugin</artifactId>-->
-			<!--				<version>3.0.0</version>-->
-			<!--			</plugin>-->
+			<!-- плагин maven-site -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
 			<!-- плагин JaCoCo -->
 			<plugin>
 				<!-- версия плагина -->
@@ -206,22 +109,22 @@
 				</executions>
 			</plugin>
 			<!-- плагины maven -->
-			<!--			<plugin>-->
-			<!--				<artifactId>maven-surefire-plugin</artifactId>-->
-			<!--				<version>3.0.0-M1</version>-->
-			<!--				<configuration>-->
-			<!--					<skip>true</skip>-->
-			<!--				</configuration>-->
-			<!--			</plugin>-->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<!--					<source>12</source>-->
-					<!--					<target>12</target>-->
-					<!--					<testSource>11</testSource>-->
-					<!--					<testTarget>11</testTarget>-->
+					<source>12</source>
+					<target>12</target>
+					<testSource>12</testSource>
+					<testTarget>12</testTarget>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
 				</configuration>
