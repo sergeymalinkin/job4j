@@ -1,4 +1,5 @@
 package ru.job4j.bank;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,19 +51,50 @@ class Bank {
      *  @param account - счет клиента.
      */
      void addAccountToUser(String passport, Account account) {
-         List<Account> accounts = this.bank.get(this.getUserById(passport));
-         accounts.add(account);
-    }
+//         List<Account> accounts = this.bank.get(this.getUserById(passport));
+//         accounts.add(account);
+//         if (account == null) {
+//             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//             alert.setTitle("Внимание");
+//             alert.setContentText("К сожалению, по вашему запросу счет не найден ");
+//             alert.showAndWait();
+//         }
+         if (!bank.isEmpty()) {
+             for (User user : this.bank.keySet()) {
+                 if (user.getPassport().equals(passport)
+                         &&
+                         (getUserOneAccount(passport, account.getRequisites()) == null)) {
+                     this.bank.get(user).add(account);
+                     break;
+                 }
+             }
+         }
+     }
     /**
      * Метод удаляет один счёт пользователя.
      * @param passport - паспорт клиента.
      * @param account - счет клиента.
      */
     void deleteAccountFromUser(String passport, Account account) {
-        List<Account> accounts = this.bank.get(this.getUserById(passport));
-        for (Account value : accounts) {
-            if (value.equals(account)) {
-                accounts.remove(value);
+//        List<Account> accounts = this.bank.get(this.getUserById(passport));
+//        for (Account value : accounts) {
+//            if (value.equals(account)) {
+//                accounts.remove(value);
+//            }
+//            if (account == null) {
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Внимание");
+//                alert.setContentText("К сожалению, по вашему запросу счет не найден ");
+//                alert.showAndWait();
+//            }
+//            break;
+//        }
+        if (!bank.isEmpty()) {
+            for (User user : this.bank.keySet()) {
+                if (getUserById(account.getRequisites()) == null) {
+                    this.bank.get(user).remove(account);
+                    break;
+                }
             }
         }
     }
@@ -88,7 +120,14 @@ class Bank {
      * @return  - список счетов клиентов.
      */
     List<Account> getUserAccounts(String passport) {
-        return this.bank.get(this.getUserById(passport));
+        List<Account> accounts = new ArrayList<>();
+        for (Map.Entry<User, List<Account>> bank : this.bank.entrySet()) {
+            if (bank.getKey().getPassport().equals(passport)) {
+                accounts.addAll(bank.getValue());
+                break;
+            }
+        }
+        return accounts;
     }
     /**
      * Перевод суммы с одного счета на другой.
