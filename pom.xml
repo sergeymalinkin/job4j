@@ -41,6 +41,7 @@
 		<module>puzzle</module>
 		<module>chess</module>
         <module>chapter_003</module>
+        <module>chapter_004</module>
     </modules>
 	<!-- подключим сторонние библиотеки, которые будут нужны в проекте -->
 	<dependencies>
