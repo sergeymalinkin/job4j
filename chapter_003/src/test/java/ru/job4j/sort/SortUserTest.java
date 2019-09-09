@@ -14,15 +14,18 @@ public class SortUserTest {
     @Test
     public void testSort() {
         SortUser sortUser = new SortUser();
-        List<User> list = new ArrayList<>();
-        list.add(new User("Sergey", 44));
-        list.add(new User("Mike", 68));
-        list.add(new User("Andrey", 21));
-        Set<User> result = sortUser.sort(list);
-        Set<User> expected = new TreeSet<>();
-        expected.add(new User("Andrey", 21));
-        expected.add(new User("Sergey", 44));
-        expected.add(new User("Mike", 68));
+        List<User> users =  List.of(
+                new User("Sergey", 44),
+                new User("Mike", 68),
+                new User("Andrey", 21)
+        );
+
+        Set<User> result = sortUser.sort(users);
+        Set<User> expected  = Set.of(
+                new User("Andrey", 21),
+                new User("Sergey", 44),
+                new User("Mike", 68)
+        );
         assertThat(result, is(expected));
     }
     /**
@@ -31,19 +34,19 @@ public class SortUserTest {
     @Test
     public void whenUsersThenSortNames() {
         SortUser sortUser = new SortUser();
-        List<User> list = new ArrayList<>();
-        list.add(new User("Дмитрий", 25));
-        list.add(new User("Андрей", 30));
-        list.add(new User("Анастасия", 20));
-        list.add(new User("София", 25));
-        List<User> result = sortUser.sortNameLength(list);
-        List<User> expected = new ArrayList<>();
-        expected.add(new User("София", 25));
-        expected.add(new User("Андрей", 30));
-        expected.add(new User("Дмитрий", 25));
-        expected.add(new User("Анастасия", 20));
-        assertThat(result, is(expected));
-        //System.out.println(result);
+        List<User> users = new ArrayList<>(Arrays.asList(
+                new User("Дмитрий", 25),
+                new User("Андрей", 30),
+                new User("Анастасия", 20),
+                new User("София", 25)
+        ));
+        List<User> expected = List.of(
+                new User("София", 25),
+                new User("Андрей", 30),
+                new User("Дмитрий", 25),
+                new User("Анастасия", 20)
+        );
+        assertThat(sortUser.sortNameLength(users), is(expected));
     }
     /**
      * Тест сортировки по всем полям.
@@ -51,17 +54,19 @@ public class SortUserTest {
     @Test
     public void whenUsersThenSortBothFields() {
         SortUser sortUser = new SortUser();
-        List<User> list = new ArrayList<>();
-        list.add(new User("Андрей", 25));
-        list.add(new User("Алекс", 30));
-        list.add(new User("Андрей", 20));
-        list.add(new User("Алекс", 25));
-        List<User> result = sortUser.sortByAllFields(list);
-        List<User> expected = new ArrayList<>();
-        expected.add(new User("Алекс", 25));
-        expected.add(new User("Алекс", 30));
-        expected.add(new User("Андрей", 20));
-        expected.add(new User("Андрей", 25));
+        List<User> users = new ArrayList<>(Arrays.asList(
+                new User("Андрей", 25),
+                new User("Алекс", 30),
+                new User("Андрей", 20),
+                new User("Алекс", 25)
+        ));
+        List<User> result = sortUser.sortByAllFields(users);
+        List<User> expected =  List.of(
+                new User("Алекс", 25),
+                new User("Алекс", 30),
+                new User("Андрей", 20),
+                new User("Андрей", 25)
+        );
         assertThat(result, is(expected));
     }
 }
