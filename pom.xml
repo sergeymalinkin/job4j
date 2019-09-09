@@ -26,9 +26,9 @@
 	<properties>
 		<!-- пропишем версию компилятора, которая должна выполнятся в среде программирования -->
 		<!-- версия компилятора -->
-		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.source>12</maven.compiler.source>
 		<!-- версия для компилированных файлов -->
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.target>12</maven.compiler.target>
 		<!-- кодировка -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<source>11</source>
@@ -241,7 +241,7 @@
 				<configuration>
 					<additionalOptions>-html5</additionalOptions>
 					<sourcepath>javadoc-bundle-options</sourcepath>
-					<source>8</source>
+					<source>12</source>
 				</configuration>
 			</plugin>
 			<!-- плагин для checkstyle -->
