@@ -76,6 +76,7 @@ public class BankTest {
         Account account1 = new Account(3000.00, "1234_5678_9000");
         Account account2 = new Account(2000.00, "2222_3333_4444");
         List<Account> expected = new ArrayList<>();
+        expected.add(account1);
         expected.add(account2);
         this.bank.addAccountToUser("7812", account1);
         this.bank.addAccountToUser("7812", account2);

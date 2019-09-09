@@ -70,7 +70,7 @@ class Bank {
     void deleteAccountFromUser(String passport, Account account) {
         if (!bank.isEmpty()) {
             for (User user : this.bank.keySet()) {
-                if (getUserById(account.getRequisites()) == null) {
+                if (getUserOneAccount(passport, account.getRequisites()) == null) {
                     this.bank.get(user).remove(account);
                     break;
                 }
