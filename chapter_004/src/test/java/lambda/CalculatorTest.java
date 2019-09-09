@@ -18,11 +18,12 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         List<Double> buffer = new ArrayList<>();
         calc.multiple(
-                3, 1,
+                0, 3, 1,
                 (value, index) -> (double) value + index,
                 buffer::add
         );
         assertThat(buffer, is(Arrays.asList(1D, 2D, 3D)));
     }
+
 }
 
