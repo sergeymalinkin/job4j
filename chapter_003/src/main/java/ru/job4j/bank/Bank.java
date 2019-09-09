@@ -51,14 +51,6 @@ class Bank {
      *  @param account - счет клиента.
      */
      void addAccountToUser(String passport, Account account) {
-//         List<Account> accounts = this.bank.get(this.getUserById(passport));
-//         accounts.add(account);
-//         if (account == null) {
-//             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//             alert.setTitle("Внимание");
-//             alert.setContentText("К сожалению, по вашему запросу счет не найден ");
-//             alert.showAndWait();
-//         }
          if (!bank.isEmpty()) {
              for (User user : this.bank.keySet()) {
                  if (user.getPassport().equals(passport)
@@ -76,19 +68,6 @@ class Bank {
      * @param account - счет клиента.
      */
     void deleteAccountFromUser(String passport, Account account) {
-//        List<Account> accounts = this.bank.get(this.getUserById(passport));
-//        for (Account value : accounts) {
-//            if (value.equals(account)) {
-//                accounts.remove(value);
-//            }
-//            if (account == null) {
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setTitle("Внимание");
-//                alert.setContentText("К сожалению, по вашему запросу счет не найден ");
-//                alert.showAndWait();
-//            }
-//            break;
-//        }
         if (!bank.isEmpty()) {
             for (User user : this.bank.keySet()) {
                 if (getUserById(account.getRequisites()) == null) {
