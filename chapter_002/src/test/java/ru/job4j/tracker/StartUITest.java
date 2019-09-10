@@ -49,6 +49,23 @@ public class StartUITest {
         builder.append(ln);
         return builder.toString();
     }
+    /**
+     * Тест добавления заявки.
+     */
+    @Test
+    public void whenUserAddItem() {
+        List<String> list = new ArrayList<>();
+        list.add("0");
+        list.add("test1");
+        list.add("desc");
+        list.add("6");
+        Input input = new StubInput(list);
+        new StartUI(input, this.tracker, this.output).init();
+        assertThat(this.tracker.findAll().get(0).getName(), is("test1"));
+    }
+    /**
+     * Тест отображения всех заявок.
+     */
     @Test
     public void whenShowAllItem() {
         Item item1 = tracker.add(new Item("test1", "desc1"));
@@ -65,6 +82,9 @@ public class StartUITest {
         items.add(item3);
         assertThat(this.tracker.findAll(), is(items));
     }
+    /**
+     * Тест замены заявок.
+     */
     @Test
     public void whenUpdateThenTrackerHasUpdatedItem() {
         Item item = this.tracker.add(new Item("test1", "desc1"));
@@ -78,6 +98,9 @@ public class StartUITest {
         new StartUI(input, this.tracker, output).init();
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
+    /**
+     * Тест удаления заявки.
+     */
     @Test
     public <delete> void whenUserDeleteItemThenTrackerDeleteItem() {
         Item item = tracker.add(new Item("test1", "desc1"));
@@ -90,6 +113,9 @@ public class StartUITest {
         Item deleteItem = null;
         assertThat(tracker.findById(item.getId()), is((delete) null));
     }
+    /**
+     * Тест поиска заявки по ID.
+     */
     @Test
     public void whenUserFindsItemByIdThenTrackerFindsItem() {
         Item item = tracker.add(new Item("test1", "desc1"));
@@ -100,6 +126,9 @@ public class StartUITest {
         Input input = new StubInput(list);
         new StartUI(input, tracker, output).init();
     }
+    /**
+     * Тест поиска заявки по имени.
+     */
     @Test
     public void whenFindItemByName() {
         Item item = this.tracker.add(new Item("test name", "desc"));
