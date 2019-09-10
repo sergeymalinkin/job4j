@@ -76,23 +76,21 @@
 	<build>
 		<plugins>
 			<!-- плагин maven-site -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.8.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>3.0.0</version>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-site-plugin</artifactId>-->
+<!--				<version>3.8.2</version>-->
+<!--			</plugin>-->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-project-info-reports-plugin</artifactId>-->
+<!--				<version>3.0.0</version>-->
+<!--			</plugin>-->
 			<!-- плагин JaCoCo -->
 			<plugin>
-				<!-- версия плагина -->
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.4</version>
-				<!-- настройка запуска задачи анализа кода на покрытие -->
 				<executions>
 					<execution>
 						<goals>
@@ -109,13 +107,13 @@
 				</executions>
 			</plugin>
 			<!-- плагины maven -->
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M1</version>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
+<!--			<plugin>-->
+<!--				<artifactId>maven-surefire-plugin</artifactId>-->
+<!--				<version>3.0.0-M1</version>-->
+<!--				<configuration>-->
+<!--					<skip>true</skip>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
