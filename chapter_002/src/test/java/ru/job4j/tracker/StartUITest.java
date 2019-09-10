@@ -14,6 +14,7 @@ import static org.junit.Assert.assertThat;
  * @since 05.09.2019.
  */
 public class StartUITest {
+    private static final Object MENU = StartUITest.menu();
     private Tracker tracker = new Tracker();
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -38,6 +39,8 @@ public class StartUITest {
         builder.append("0 : Добавление новой заявки");
         builder.append(ln);
         builder.append("1 : Отобразить все заявки");
+        builder.append(ln);
+        builder.append("2 : Замена заявки");
         builder.append(ln);
         builder.append("3 : Удаление заявки");
         builder.append(ln);
@@ -80,7 +83,7 @@ public class StartUITest {
         items.add(item1);
         items.add(item2);
         items.add(item3);
-        assertThat(output.toString(), is(menu() + items + menu()));
+        assertThat(this.tracker.findAll(), is(items));
     }
     /**
      * Тест замены заявок.
