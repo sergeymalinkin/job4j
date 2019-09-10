@@ -1,4 +1,8 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
+
 import java.util.function.Consumer;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
@@ -7,7 +11,7 @@ import java.util.function.Consumer;
  */
 public class FindItemById extends BaseAction {
     private final Consumer<String> output;
-    FindItemById(int key, String info, Consumer<String> output) {
+    public FindItemById(int key, String info, Consumer<String> output) {
         super(key, info);
         this.output = output;
     }
@@ -15,10 +19,14 @@ public class FindItemById extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         output.accept("------------ Поиск заявки по ID -----------------");
         output.accept("------------------ Результат --------------------");
-        String id = input.ask("Введите Id заявки, для ее поиска :");
-        Item item = tracker.findById(id);
+        Item item = tracker.findById(input.ask("Введите Id заявки, для ее поиска :"));
         if (item != null) {
-            output.accept("-------------------------------------------------");
+            output.accept(
+                    "ID заявки:   |" + item.getId() + '\n' + '\r'
+                            +
+                            "Имя заявки:  |" + item.getName() + '\n' + '\r'
+                            +
+                            "Описание:    |" + item.getDesc());
         } else {
             output.accept("-------------- Заявка не найдена!--------------");
         }

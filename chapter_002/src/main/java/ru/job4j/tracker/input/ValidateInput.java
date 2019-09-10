@@ -1,5 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
 import java.util.List;
+
 import static java.lang.String.format;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
@@ -12,7 +13,7 @@ public class ValidateInput implements Input {
      * что бы обрабатывались исключительные ситуации (при помощи блоков try { … } catch( … ) { … }).
      */
     private final Input input;
-    ValidateInput(final Input input) {
+    public ValidateInput(final Input input) {
         this.input = input;
     }
     @Override

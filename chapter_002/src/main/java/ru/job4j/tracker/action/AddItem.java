@@ -1,8 +1,12 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
+
 import java.util.function.Consumer;
 public class AddItem extends BaseAction {
     private final Consumer<String> output;
-    AddItem(int key, String info, Consumer<String> output) {
+    public AddItem(int key, String info, Consumer<String> output) {
         super(key, info);
         this.output = output;
     }

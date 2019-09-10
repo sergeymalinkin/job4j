@@ -8,25 +8,25 @@ public class Item {
     private String desc;
     private long time;
 
-    Item(String name, String desc, long time) {
+    public Item(String name, String desc, long time) {
         this.name = name;
         this.desc = desc;
         this.time = time;
     }
-    Item(String name, String desc) {
+    public Item(String name, String desc) {
         this.name = name;
         this.desc = desc;
     }
-    String getId() {
+    public String getId() {
         return id;
     }
-    void setId(String id) {
+    public void setId(String id) {
         this.id = id;
     }
-    String getName() {
+    public String getName() {
         return name;
     }
-    String getDesc() {
+    public String getDesc() {
         return desc;
     }
 

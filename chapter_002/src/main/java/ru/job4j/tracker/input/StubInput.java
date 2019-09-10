@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
 import java.util.List;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
@@ -22,7 +22,7 @@ public class StubInput implements Input {
      */
     private int position;
 
-    StubInput(List<String> answers) {
+    public StubInput(List<String> answers) {
         this.answers = answers;
     }
     /**

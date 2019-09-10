@@ -1,10 +1,14 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
 
 import java.util.function.Consumer;
 
 public class EditItem extends BaseAction {
     private final Consumer<String> output;
-    EditItem(int key, String info, Consumer<String> output) {
+    public EditItem(int key, String info, Consumer<String> output) {
         super(key, info);
         this.output = output;
     }
@@ -16,7 +20,7 @@ public class EditItem extends BaseAction {
         String desc = input.ask("Введите новое описание заявки :");
         Item item = new Item(name, desc);
         if (tracker.replace(id, item)) {
-            output.accept("------------- Заявка заменена --------------");
+            output.accept("------------ Новая заявка с Id: " + item.getId() + " " + "заменена!");
         } else {
             output.accept("------------ Заявка не заменена!------------");
         }

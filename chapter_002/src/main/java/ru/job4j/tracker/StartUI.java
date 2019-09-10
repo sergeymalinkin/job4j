@@ -1,4 +1,8 @@
 package ru.job4j.tracker;
+import ru.job4j.tracker.input.ConsoleInput;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.input.ValidateInput;
+
 import java.util.List;
 import java.util.function.Consumer;
 /**
@@ -35,11 +39,11 @@ public class StartUI {
         List<Integer> keys = menu.range();
         do {
             menu.show();
-            int ask = this.input.ask("Введите пункт меню : ", keys);
+            int ask = this.input.ask("ВВЕДИТЕ ПУНКТ МЕНЮ : ", keys);
             menu.select(ask);
         } while (this.exit);
     }
-    void stop() {
+    public void stop() {
         this.exit = false;
     }
     public static void main(String[] args) {

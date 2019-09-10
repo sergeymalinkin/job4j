@@ -20,7 +20,7 @@ public class Tracker {
      * Метод, реализующий добавление заявки в хранилище
      * @param item новая завка
      */
-    Item add(Item item) {
+    public Item add(Item item) {
         item.setId(this.generateId());
         this.items.add(item);
         return item;
@@ -36,7 +36,7 @@ public class Tracker {
      * Метод реализующий редактирование заявки в хранилище
      * @return id.
      */
-    boolean replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         boolean result = false;
         System.out.println(id);
         int index = 0;
@@ -55,7 +55,7 @@ public class Tracker {
      * Метод, реализующий удаление заявки из хранилища
      * @param id уникальный ключ заяки.
      */
-    boolean delete(String id) {
+    public boolean delete(String id) {
         boolean result = false;
         for (int index = 0; index != items.size(); index++) {
             if (this.items.get(index).getId().equals(id)) {
@@ -70,14 +70,14 @@ public class Tracker {
      * Метод, реализущий получение списка всех заявок из хранилища.
      * @return all items.
      */
-    ArrayList<Item> findAll() {
+    public ArrayList<Item> findAll() {
         return new ArrayList<>(items);
     }
     /**
      * Метод, реализущий получение списка по имени из хранилища.
      *  @param key - уникальный ключ заявки.
      */
-    ArrayList<Item> findByName(String key) {
+    public ArrayList<Item> findByName(String key) {
         ArrayList<Item> find = new ArrayList<>();
         for (Item i : items) {
             if (i.getName().equals(key)) {
@@ -91,7 +91,7 @@ public class Tracker {
          * @param id ключ заявки.
          * @return result.
          */
-        Item findById(String id) {
+        public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item != null && item.getId().equals(id)) {
