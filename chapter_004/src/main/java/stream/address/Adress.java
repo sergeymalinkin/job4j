@@ -1,4 +1,5 @@
 package stream.address;
+<<<<<<< HEAD
 import java.util.Objects;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
@@ -6,11 +7,12 @@ import java.util.Objects;
  * @since 10.09.2019
  */
 class Address {
+<<<<<<< HEAD
     private final String city;
     private final String street;
     private final int home;
     private final int apartment;
-
+=======
     Address(String city, String street, int home, int apartment) {
         this.city = city;
         this.street = street;

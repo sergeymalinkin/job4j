@@ -1,8 +1,10 @@
 package stream.address;
 import org.junit.Test;
+<<<<<<< HEAD
 import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 1
@@ -16,7 +18,7 @@ public class ProfileTest {
         Address client3 = new Address("Москва", "Широкая", 257, 3);
         Address client4 = new Address("Москва", "Широкая", 257, 3);
         Address client5 = new Address("Ярославль", "Угличская", 37, 32);
-        List<Profile> profiles = List.of(
+               List<Profile> profiles = List.of(
                 new Profile(client1),
                 new Profile(client2),
                 new Profile(client3),
