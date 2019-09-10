@@ -18,11 +18,11 @@ public class StartUITest {
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final Consumer<String> output = new Consumer<>() {
+        private PrintStream ps = new PrintStream(out);
         @Override
         public void accept(String s) {
-            stdout.println(s);
+            ps.println(s);
         }
-
         @Override
         public String toString() {
             return out.toString();
@@ -80,7 +80,7 @@ public class StartUITest {
         items.add(item1);
         items.add(item2);
         items.add(item3);
-        assertThat(this.tracker.findAll(), is(items));
+        assertThat(output.toString(), is(menu() + items + menu()));
     }
     /**
      * Тест замены заявок.

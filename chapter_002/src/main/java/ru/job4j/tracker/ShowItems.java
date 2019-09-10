@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import java.util.ArrayList;
 import java.util.function.Consumer;
 public class ShowItems extends BaseAction {
     private final Consumer<String> output;
@@ -10,7 +11,9 @@ public class ShowItems extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         output.accept("------------ Отобразить все заявки -----------------");
         output.accept("------------------ Результат ----------------------");
-        tracker.findAll();
+        ArrayList<Item> all = tracker.findAll();
+        for (Item item : all)
+        output.accept(item.toString());
         output.accept("---------------------------------------------------");
     }
 }
