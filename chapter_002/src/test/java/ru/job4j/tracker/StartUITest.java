@@ -133,6 +133,7 @@ public class StartUITest {
         list.add("6");
         Input input = new StubInput(list);
         new StartUI(input, tracker, output).init();
+        assertThat(this.tracker.findById(item.getId()), is(item));
     }
     /**
      * Тест поиска заявки по имени.

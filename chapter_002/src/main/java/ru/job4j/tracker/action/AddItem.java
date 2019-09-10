@@ -12,11 +12,11 @@ public class AddItem extends BaseAction {
     }
     @Override
     public void execute(Input input, Tracker tracker) {
-        output.accept("------------ Добавление новой заявки --------------");
+        output.accept("-------- Добавление новой заявки ----------");
         String name = input.ask("Пожалуйста, введите имя заявки:");
         String desc = input.ask("Пожалуйста, введите описание заявки:");
         Item item = new Item(name, desc);
         tracker.add(item);
-        System.out.println("------------ Новая заявка с Id: " + item.getId() + " " + "добавлена!");
+        output.accept("Новая заявка с Id: " + item.getId() + " " + "добавлена!");
     }
 }
