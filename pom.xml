@@ -76,22 +76,22 @@
 	<build>
 		<plugins>
 			<!-- плагин maven-site -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.7.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>3.0.0</version>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-site-plugin</artifactId>-->
+<!--				<version>3.7.1</version>-->
+<!--			</plugin>-->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-project-info-reports-plugin</artifactId>-->
+<!--				<version>3.0.0</version>-->
+<!--			</plugin>-->
 			<!-- плагин JaCoCo -->
 			<plugin>
 				<!-- версия плагина -->
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.4</version>
+				<version>0.8.2</version>
 				<!-- настройка запуска задачи анализа кода на покрытие -->
 				<executions>
 					<execution>
