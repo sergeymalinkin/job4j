@@ -13,8 +13,10 @@ public class ShowItems extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         for (Item item : tracker.findAll()) {
             output.accept(
-                    "ID заявки:   |" + item.getId() + '\n' + '\r' +
-                    "Имя заявки:  |" + item.getName() + '\n' + '\r' +
+                    "ID заявки:   |" + item.getId() + '\n' + '\r'
+                            +
+                    "Имя заявки:  |" + item.getName() + '\n' + '\r'
+                            +
                     "Описание:    |" + item.getDesc());
         }
     }

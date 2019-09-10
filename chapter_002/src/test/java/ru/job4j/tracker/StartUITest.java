@@ -69,15 +69,17 @@ public class StartUITest {
     /**
      * Тест отображения всех заявок.
      */
+
     @Test
     public void whenShowAllItem() {
+        StringBuilder builder = new StringBuilder();
         Item item1 = tracker.add(new Item("test1", "desc1"));
         Item item2 = tracker.add(new Item("test2", "desc2"));
         Item item3 = tracker.add(new Item("test3", "desc3"));
         List<String> list = new ArrayList<>();
-        Input input = new StubInput(list);
         list.add("1");
         list.add("6");
+        Input input = new StubInput(list);
         new StartUI(input, this.tracker, this.output).init();
         List<Item> items = new ArrayList<>();
         items.add(item1);
