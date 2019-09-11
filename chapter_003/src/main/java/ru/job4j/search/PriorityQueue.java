@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
- * @version 2.0
- * @since 02.09.2019
+ * @version 3.0
+ * @since 10.09.2019
  */
 class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
@@ -16,8 +16,8 @@ class PriorityQueue {
      */
     void put(Task task) {
         ListIterator<Task> liter = tasks.listIterator();
-        int count = tasks.size();
-        for (int index = 0; index < tasks.size(); index++) {
+        var count = tasks.size();
+        for (var index = 0; index < tasks.size(); index++) {
             if (task.getPriority() < liter.next().getPriority()) {
                 count = index;
                 break;
