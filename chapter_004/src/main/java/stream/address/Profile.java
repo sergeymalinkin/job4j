@@ -1,5 +1,4 @@
 package stream.address;
-
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 1

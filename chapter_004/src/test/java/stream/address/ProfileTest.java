@@ -1,19 +1,14 @@
 package stream.address;
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 1
  * @since 10.09.2019
  */
 public class ProfileTest {
-
-
     @Test
     public void whenListProfilesThenListAddresses() {
         Address client1 = new Address("Новгород", "Молодежная", 47, 12);

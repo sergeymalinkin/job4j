@@ -1,7 +1,5 @@
 package stream.address;
-
 import java.util.Objects;
-
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 1
@@ -19,23 +17,6 @@ class Address {
         this.home = home;
         this.apartment = apartment;
     }
-
-    String getCity() {
-        return city;
-    }
-
-    String getStreet() {
-        return street;
-    }
-
-    int getHome() {
-        return home;
-    }
-
-    int getApartment() {
-        return apartment;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o)  {
