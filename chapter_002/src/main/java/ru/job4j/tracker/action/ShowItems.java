@@ -17,6 +17,7 @@ public class ShowItems extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         for (Item item : tracker.findAll()) {
             output.accept("--------- Показать все заявки -----------");
+            output.accept("Результат:");
             output.accept(
                     "ID заявки:   |" + item.getId() + '\n' + '\r'
                             +
