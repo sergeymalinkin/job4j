@@ -3,7 +3,6 @@ import org.junit.After;
 import org.junit.Test;
 import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.input.StubInput;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class StartUITest {
     private Tracker tracker = new Tracker();
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    private StringBuilder builder = new StringBuilder();
+
     private String ln = System.lineSeparator();
     private final Consumer<String> output = new Consumer<>() {
         private PrintStream ps = new PrintStream(out);
@@ -79,6 +78,7 @@ public class StartUITest {
 
     @Test
     public void whenShowAllItem() {
+        StringBuilder builder = new StringBuilder();
         Item item1 = tracker.add(new Item("test1", "desc1"));
         Item item2 = tracker.add(new Item("test2", "desc2"));
         Item item3 = tracker.add(new Item("test3", "desc3"));
@@ -140,6 +140,7 @@ public class StartUITest {
      */
     @Test
     public void whenUserFindsItemByIdThenTrackerFindsItem() {
+        StringBuilder builder = new StringBuilder();
         Item item = tracker.add(new Item("test1", "desc1"));
         List<String> list = new ArrayList<>();
         list.add("4");
@@ -161,6 +162,7 @@ public class StartUITest {
      */
     @Test
     public void whenFindItemByName() {
+        StringBuilder builder = new StringBuilder();
         Item item = this.tracker.add(new Item("test name", "desc"));
         List<String> list = new ArrayList<>();
         list.add("5");
