@@ -1,4 +1,4 @@
-package stream;
+package stream.school;
 
 import java.util.Objects;
 
