@@ -25,7 +25,7 @@ class Profile {
 
     List<Address> collect(List<Profile> profiles) {
         Comparator<Address> comparator = Comparator.comparing(Address::getCity);
-        return profiles.stream().map(Profile::getAddress).distinct().sorted(comparator).collect(Collectors.toList());
+        return profiles.stream().map(Profile::getAddress).sorted(comparator).distinct().collect(Collectors.toList());
     }
 }
 
