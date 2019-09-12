@@ -34,7 +34,7 @@ class Bank {
      */
      User getUserById(String passport) {
          return this.bank.keySet()
-                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null);
+                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow();
      }
 
     /**
@@ -44,7 +44,7 @@ class Bank {
      */
      void addAccountToUser(String passport, Account account) {
          this.bank.get(this.bank.keySet()
-                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null)).add(account);
+                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow()).add(account);
 
      }
     /**
@@ -54,7 +54,7 @@ class Bank {
      */
     void deleteAccountFromUser(String passport, Account account) {
         this.bank.get(this.bank.keySet()
-                .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null)).remove(account);
+                .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow()).remove(account);
     }
     /**
      * Метод возвращает счет клиента, найденный по реквизитам.
@@ -64,7 +64,7 @@ class Bank {
      */
     private Account getUserOneAccount(String passport, String requisites) {
         return getUserAccounts(passport).stream()
-                .filter(u -> u.getRequisites().equals(requisites)).findFirst().orElse(null);
+                .filter(u -> u.getRequisites().equals(requisites)).findFirst().orElseThrow();
     }
     /**
      * Метод позволяет получить список счетов для пользователя.
@@ -73,7 +73,7 @@ class Bank {
      */
     List<Account> getUserAccounts(String passport) {
         return this.bank.get(this.bank.keySet().stream()
-                .filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null));
+                .filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow());
     }
     /**
      * Перевод суммы с одного счета на другой.
