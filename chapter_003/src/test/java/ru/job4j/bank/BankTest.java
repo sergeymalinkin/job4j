@@ -34,11 +34,8 @@ public class BankTest {
     public void whenDeleteUser() {
         User user = new User("Sergey", "7814");
         this.bank.addUser(user);
-        this.bank.deleteUser(user);
-        this.bank.deleteUser(user);
-        User result = this.bank.getUserById("1234");
-        User expected = null;
-        assertThat(result, is(expected));
+        boolean result = bank.deleteUser(new User("Sergey", "7814"));
+        assertThat(result, is(true));
     }
     /**
      * Тест поиска клиента по Id.
@@ -76,7 +73,6 @@ public class BankTest {
         Account account1 = new Account(3000.00, "1234_5678_9000");
         Account account2 = new Account(2000.00, "2222_3333_4444");
         List<Account> expected = new ArrayList<>();
-        expected.add(account1);
         expected.add(account2);
         this.bank.addAccountToUser("7812", account1);
         this.bank.addAccountToUser("7812", account2);

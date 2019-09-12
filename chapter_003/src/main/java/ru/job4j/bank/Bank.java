@@ -1,9 +1,7 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 /**
  * Банковские переводы.
  * @author Sergey Malinkin (sloyz@ya.ru)
@@ -25,7 +23,6 @@ class Bank {
     /**
      * Метод удаления клиента из базы.
      * @param user - клиент.
-     * @return возвращает true если клиент удален из базы, иначе false
      */
     boolean deleteUser(User user) {
         return null != this.bank.remove(user);
@@ -36,31 +33,19 @@ class Bank {
      * @return клиент
      */
      User getUserById(String passport) {
-        User result = null;
-        for (User user : this.bank.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                result = user;
-                break;
-            }
-        }
-        return result;
-    }
+         return this.bank.keySet()
+                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null);
+     }
+
     /**
      *  Метод добавляет счёт пользователю.
      *  @param passport - паспорт клиента.
      *  @param account - счет клиента.
      */
      void addAccountToUser(String passport, Account account) {
-         if (!bank.isEmpty()) {
-             for (User user : this.bank.keySet()) {
-                 if (user.getPassport().equals(passport)
-                         &&
-                         (getUserOneAccount(passport, account.getRequisites()) == null)) {
-                     this.bank.get(user).add(account);
-                     break;
-                 }
-             }
-         }
+         this.bank.get(this.bank.keySet()
+                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null)).add(account);
+
      }
     /**
      * Метод удаляет один счёт пользователя.
@@ -68,14 +53,8 @@ class Bank {
      * @param account - счет клиента.
      */
     void deleteAccountFromUser(String passport, Account account) {
-        if (!bank.isEmpty()) {
-            for (User user : this.bank.keySet()) {
-                if (getUserOneAccount(passport, account.getRequisites()) == null) {
-                    this.bank.get(user).remove(account);
-                    break;
-                }
-            }
-        }
+        this.bank.get(this.bank.keySet()
+                .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null)).remove(account);
     }
     /**
      * Метод возвращает счет клиента, найденный по реквизитам.
@@ -84,14 +63,8 @@ class Bank {
      * @return Account пользователя.
      */
     private Account getUserOneAccount(String passport, String requisites) {
-        Account userAccount = null;
-        List<Account> userAccounts = this.getUserAccounts(passport);
-        for (Account account : userAccounts) {
-            if (account.getRequisites().equals(requisites)) {
-                userAccount = account;
-            }
-        }
-        return userAccount;
+        return getUserAccounts(passport).stream()
+                .filter(u -> u.getRequisites().equals(requisites)).findFirst().orElse(null);
     }
     /**
      * Метод позволяет получить список счетов для пользователя.
@@ -99,14 +72,8 @@ class Bank {
      * @return  - список счетов клиентов.
      */
     List<Account> getUserAccounts(String passport) {
-        List<Account> accounts = new ArrayList<>();
-        for (Map.Entry<User, List<Account>> bank : this.bank.entrySet()) {
-            if (bank.getKey().getPassport().equals(passport)) {
-                accounts.addAll(bank.getValue());
-                break;
-            }
-        }
-        return accounts;
+        return this.bank.get(this.bank.keySet().stream()
+                .filter(u -> u.getPassport().equals(passport)).findFirst().orElse(null));
     }
     /**
      * Перевод суммы с одного счета на другой.
