@@ -32,30 +32,39 @@ class Bank {
      * @param passport - паспорт клиента
      * @return клиент
      */
-     User getUserById(String passport) {
-         return this.bank.keySet()
-                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow();
-     }
-
+    User getUserById(String passport) {
+        return this.bank.keySet()
+                .stream()
+                .filter(u -> u.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
+    }
     /**
      *  Метод добавляет счёт пользователю.
      *  @param passport - паспорт клиента.
      *  @param account - счет клиента.
      */
-     void addAccountToUser(String passport, Account account) {
-         this.bank.get(this.bank.keySet()
-                 .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow()).add(account);
-
-     }
+    void addAccountToUser(String passport, Account account) {
+        this.bank.keySet()
+                .stream()
+                .filter(u -> u.getPassport().equals(passport))
+                .findFirst()
+                .map(u -> bank.get(u))
+                .ifPresent(accounts -> accounts.add(account));
+    }
     /**
      * Метод удаляет один счёт пользователя.
      * @param passport - паспорт клиента.
      * @param account - счет клиента.
      */
     void deleteAccountFromUser(String passport, Account account) {
-        this.bank.get(this.bank.keySet()
-                .stream().filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow()).remove(account);
-    }
+        this.bank.keySet()
+                .stream()
+                .filter(u -> u.getPassport().equals(passport))
+                .findFirst()
+                .map(u -> bank.get(u))
+                .ifPresent(accounts -> accounts.remove(account));
+        }
     /**
      * Метод возвращает счет клиента, найденный по реквизитам.
      * @param passport - паспорт клиента.
@@ -63,18 +72,26 @@ class Bank {
      * @return Account пользователя.
      */
     private Account getUserOneAccount(String passport, String requisites) {
-        return getUserAccounts(passport).stream()
-                .filter(u -> u.getRequisites().equals(requisites)).findFirst().orElseThrow();
+        return getUserAccounts(passport)
+                .stream()
+                .filter(u -> u.getRequisites().equals(requisites))
+                .findFirst()
+                .orElse(null);
+
     }
     /**
      * Метод позволяет получить список счетов для пользователя.
      * @param passport - паспорт клиента
      * @return  - список счетов клиентов.
      */
-    List<Account> getUserAccounts(String passport) {
-        return this.bank.get(this.bank.keySet().stream()
-                .filter(u -> u.getPassport().equals(passport)).findFirst().orElseThrow());
-    }
+        List<Account> getUserAccounts(String passport) {
+            return this.bank.keySet()
+                    .stream()
+                    .filter(u -> u.getPassport().equals(passport))
+                    .findFirst()
+                    .map(user -> bank.get(user))
+                    .orElse(new ArrayList<>());
+        }
     /**
      * Перевод суммы с одного счета на другой.
      * @param srcPassport Номер паспорта пользователя, со счета которого будет перевод.
@@ -85,7 +102,7 @@ class Bank {
      * @return true, если перевод успешен.
      */
     boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite,
-                                 double amount) {
+                          double amount) {
         boolean result = false;
         Account src = this.getUserOneAccount(srcPassport, srcRequisite);
         Account dest = this.getUserOneAccount(destPassport, destRequisite);
