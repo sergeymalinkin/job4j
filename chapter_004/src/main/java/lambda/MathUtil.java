@@ -10,10 +10,6 @@ public class MathUtil {
         return left + second;
     }
 
-    public static double div(int left, int second) {
-        return left / second;
-    }
-
     public static void main(String[] args) {
         Calculator calc = new Calculator();
         calc.multiple(

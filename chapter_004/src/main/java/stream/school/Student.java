@@ -7,8 +7,8 @@ import java.util.Objects;
  * @version 1
  * @since 10.09.2019
  */
-public class Student {
-    private int score;
+class Student {
+    private final int score;
     Student(int score) {
         this.score = score;
     }

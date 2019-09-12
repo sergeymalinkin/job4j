@@ -7,9 +7,9 @@ import java.util.Objects;
  * @version 1
  * @since 10.09.2019
  */
-public class Student {
-    private String secondName;
-    private int score;
+class Student {
+    private final String secondName;
+    private final int score;
     Student(String secondName, int score) {
         this.secondName = secondName;
         this.score = score;
