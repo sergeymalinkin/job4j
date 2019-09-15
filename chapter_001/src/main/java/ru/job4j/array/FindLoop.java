@@ -13,7 +13,7 @@ class FindLoop {
     }
     static int indexOf(int[] data, int el, int start, int finish) {
         int rst = -1;
-        for (int i = start + 1; i <= finish ; i++) {
+        for (int i = start + 1; i <= finish; i++) {
             if (data[i] == el) {
                 rst = i;
             }
