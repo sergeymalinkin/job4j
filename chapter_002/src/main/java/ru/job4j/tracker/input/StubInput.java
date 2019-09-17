@@ -1,6 +1,7 @@
 package ru.job4j.tracker.input;
 import java.util.List;
 /**
+ * Заглушка консоли для тестов.
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 3.0
  * @since 05.09.2019.

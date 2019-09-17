@@ -3,6 +3,7 @@ import java.util.List;
 
 import static java.lang.String.format;
 /**
+ * Проверка введенных данных на ошибки.
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 3.0
  * @since 05.09.2019.
@@ -18,24 +19,23 @@ public class ValidateInput implements Input {
     }
     @Override
     public String ask(String question) {
-       return this.input.ask(question);
+        return this.input.ask(question);
     }
     @Override
     public int ask(String question, List<Integer> range) {
-                /*
-          Если ошибок нет, то возвращается номер нажатой клавищи.
-          Если исключительная ситуация, то возвращается ошибка -1.
+        /*
+         Если ошибок нет, то возвращается номер нажатой клавищи.
+         Если исключительная ситуация, то возвращается ошибка -1.
          */
-        //value - answer
         boolean invalid = true;
         int answer = -1;
         do {
             try {
                 answer = this.input.ask(question, range);
                 invalid = false;
-            } catch (MenuOutException moe) {
+            } catch (MenuOutException e) {
                 System.out.print(format("Пожалуйста, выберите пункт меню.%n"));
-            } catch (NumberFormatException nfe) {
+            } catch (NumberFormatException e) {
                 System.out.print(format("Пожалуйста, введите корректное значение.%n"));
             }
         } while (invalid);

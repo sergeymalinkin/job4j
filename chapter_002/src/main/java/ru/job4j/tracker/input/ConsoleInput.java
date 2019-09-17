@@ -2,7 +2,12 @@ package ru.job4j.tracker.input;
 
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * Консольный ввод
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 1.0
+ * @since 09.09.2019
+ */
 public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
 
@@ -12,13 +17,11 @@ public class ConsoleInput implements Input {
         return scanner.nextLine();
     }
     /**
-     * метод проверки введенного значения меню
-     *
-     * @param question - ответ пользователя
-     * @param range    - диапазон допустимых занчений меню
-     * @return - возврат числового значения меню
+     * метод проверки введенного значения меню.
+     * @param question - ответ пользователя.
+     * @param range - диапазон допустимых занчений меню.
+     * @return - возврат числового значения меню.
      */
-    //value - answer
     @Override
     public int ask(String question, List<Integer> range) {
         int key = Integer.parseInt(this.ask(question));
@@ -30,7 +33,7 @@ public class ConsoleInput implements Input {
             }
         }
         if (!exist) {
-            throw new MenuOutException("Out of menu range.");
+            throw new MenuOutException("Нет такого пункта меню");
         }
         return key;
     }

@@ -6,34 +6,37 @@ import ru.job4j.tracker.input.ValidateInput;
 import java.util.List;
 import java.util.function.Consumer;
 /**
- * @version 3.0
- * @since 26.08.2019
- */
+ *  Консольный ввод
+ *  @author Sergey Malinkin (sloyz@ya.ru)
+ *  @version 4.0
+ *  @since 17.09.2019
+ *  */
 public class StartUI {
+    /**
+     * Flag для продолжения или выхода из программы.
+     */
     private boolean exit = true;
-    private final Consumer<String> output;
+    /**
+     * Меню программы.
+     */
     private MenuTracker menu;
     /**
      * Получение данных от пользователя.
      */
     private final Input input;
-    /**
-     * Хранилище заявок
-     */
-    private final Tracker tracker;
+
     /**
      * Конструтор инициализирующий поля.
-     *
      * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
     StartUI(Input input, Tracker tracker, Consumer<String> output) {
         this.input = input;
-        this.tracker = tracker;
-        this.output = output;
-        this.menu = new MenuTracker(this.input, this.tracker, this.output);
-
+        this.menu = new MenuTracker(this.input, tracker, output);
     }
+    /**
+     * Основой цикл программы.
+     */
     void init() {
         menu.fillActions(this);
         List<Integer> keys = menu.range();
@@ -43,9 +46,16 @@ public class StartUI {
             menu.select(ask);
         } while (this.exit);
     }
+    /**
+     * Выход из программы.
+     */
     public void stop() {
         this.exit = false;
     }
+    /**
+     * Запуск программы.
+     * @param args параметры запуска.
+     */
     public static void main(String[] args) {
         new StartUI(
                 new ValidateInput(
@@ -56,5 +66,3 @@ public class StartUI {
                 .init();
     }
 }
-
-

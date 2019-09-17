@@ -1,7 +1,12 @@
 package ru.job4j.tracker;
 
 import java.util.Objects;
-
+/**
+ * Задача.
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 1.0
+ * @since 09.09.2019
+ */
 public class Item {
     private String id;
     private String name;

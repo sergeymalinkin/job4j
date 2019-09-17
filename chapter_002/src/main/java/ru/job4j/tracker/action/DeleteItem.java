@@ -3,6 +3,12 @@ import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.Tracker;
 
 import java.util.function.Consumer;
+/**
+ * Действие - удаление заявки.
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 2.0
+ * @since 17.09.2019.
+ */
 public class DeleteItem extends BaseAction {
     private final Consumer<String> output;
     public DeleteItem(int key, String info, Consumer<String> output) {

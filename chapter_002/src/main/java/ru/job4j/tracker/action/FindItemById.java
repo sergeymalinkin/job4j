@@ -5,9 +5,10 @@ import ru.job4j.tracker.Tracker;
 
 import java.util.function.Consumer;
 /**
+ * Действие - поиск заявки по ID.
  * @author Sergey Malinkin (sloyz@ya.ru)
- * @version 3.0
- * @since 05.09.2019.
+ * @version 2.0
+ * @since 17.09.2019.
  */
 public class FindItemById extends BaseAction {
     private final Consumer<String> output;
@@ -22,6 +23,7 @@ public class FindItemById extends BaseAction {
         Item item = tracker.findById(input.ask("Введите Id заявки, для ее поиска :"));
         if (item != null) {
             output.accept("Результат:");
+            output.accept("----------- Заявка найдена! --------------");
             output.accept(
                     "ID заявки:   |" + item.getId() + '\n' + '\r'
                             +

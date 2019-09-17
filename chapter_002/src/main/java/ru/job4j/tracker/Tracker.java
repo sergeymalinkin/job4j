@@ -1,8 +1,12 @@
 package ru.job4j.tracker;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+
 /**
+ * Трекер.
  * @author Sergey Malinkin (sloyz@ya.ru)
  * @version 3.0
  * @since 05.09.2019.
@@ -13,12 +17,12 @@ public class Tracker {
      */
     private final List<Item> items = new ArrayList<>();
     /**
-     * Случайное значение для генерации id .
+     * Случайное значение для генерации id.
      */
     private static final Random RN = new Random();
     /**
-     * Метод, реализующий добавление заявки в хранилище
-     * @param item новая завка
+     * Метод, реализующий добавление заявки в хранилище.
+     * @param item новая завка.
      */
     public Item add(Item item) {
         item.setId(this.generateId());
@@ -33,8 +37,10 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
     }
     /**
-     * Метод реализующий редактирование заявки в хранилище
-     * @return id.
+     * Методб реализующий редактирование заявки в хранилище.
+     *  @param id номер заявки.
+     *  @param item отредактированная заявка.
+     *  @return true - флаг успешного редактирования.
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
@@ -54,6 +60,7 @@ public class Tracker {
     /**
      * Метод, реализующий удаление заявки из хранилища
      * @param id уникальный ключ заяки.
+     * @return успешное удаление.
      */
     public boolean delete(String id) {
         boolean result = false;
@@ -77,28 +84,15 @@ public class Tracker {
      * Метод, реализущий получение списка по имени из хранилища.
      *  @param key - уникальный ключ заявки.
      */
-    public ArrayList<Item> findByName(String key) {
-        ArrayList<Item> find = new ArrayList<>();
-        for (Item i : items) {
-            if (i.getName().equals(key)) {
-                find.add(i);
-            }
-        }
-        return find;
+    public List<Item> findByName(String key) {
+        return items.stream().filter(x->x.getName().equals(key)).collect(Collectors.toList());
     }
-        /**
-         * Метод реализующий поиск заявки в хранилище по id
-         * @param id ключ заявки.
-         * @return result.
-         */
-        public Item findById(String id) {
-        Item result = null;
-        for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
-                result = item;
-                break;
-            }
-        }
-        return result;
+    /**
+     * Метод реализующий поиск заявки в хранилище по id
+     * @param id ключ заявки.
+     * @return найденная заявка.
+     */
+    public Item findById(String id) {
+        return items.stream().filter(x->x.getId().equals(id)).findFirst().orElse(null);
     }
 }

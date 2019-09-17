@@ -153,6 +153,7 @@ public class StartUITest {
         builder.append(MENU);
         builder.append("----------- Поиск заявки по ID -----------").append(ln);
         builder.append("Результат:").append(ln);
+        builder.append("----------- Заявка найдена! --------------").append(ln);
         builder.append(item.toString()).append(ln);
         builder.append(MENU);
         assertThat(this.output.toString(), is(builder.toString()));
@@ -175,6 +176,7 @@ public class StartUITest {
         builder.append(MENU);
         builder.append("----------- Поиск заявки по имени -----------").append(ln);
         builder.append("Результат:").append(ln);
+        builder.append("----------- Заявка найдена! --------------").append(ln);
         builder.append(item.toString()).append(ln);
         builder.append(MENU);
         assertThat(this.output.toString(), is(builder.toString()));

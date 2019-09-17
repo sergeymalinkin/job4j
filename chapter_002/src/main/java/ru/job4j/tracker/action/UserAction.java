@@ -2,7 +2,12 @@ package ru.job4j.tracker.action;
 
 import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.Tracker;
-
+/**
+ * Действия пользователя.
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 1.0
+ * @since 09.09.2019
+ */
 public interface UserAction {
     /**
      * Метод возвращает ключ опции.

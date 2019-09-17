@@ -6,6 +6,12 @@ import ru.job4j.tracker.input.Input;
 
 import java.util.List;
 import java.util.function.Consumer;
+/**
+ * Действие - поиск заявки по имени.
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 2.0
+ * @since 17.09.2019.
+ */
 public class FindItemByName extends BaseAction {
     private final Consumer<String> output;
     public FindItemByName(int key, String info, Consumer<String> output) {
@@ -18,20 +24,21 @@ public class FindItemByName extends BaseAction {
         List<Item> items = tracker.findByName(input.ask("Введите имя заявки, для ее поиска :"));
         output.accept("----------- Поиск заявки по имени -----------");
         for (Item item : items) {
-        if (item != null) {
-            output.accept("Результат:");
-            output.accept("ID заявки:   |" + item.getId() + '\n' + '\r'
-                    +
-                    "Имя заявки:  |" + item.getName() + '\n' + '\r'
-                    +
-                    "Описание:    |" + item.getDesc());
-            found = true;
-            break;
-        }
+            if (item != null) {
+                output.accept("Результат:");
+                output.accept("----------- Заявка найдена! --------------");
+                output.accept("ID заявки:   |" + item.getId() + '\n' + '\r'
+                        +
+                        "Имя заявки:  |" + item.getName() + '\n' + '\r'
+                        +
+                        "Описание:    |" + item.getDesc());
+                found = true;
+                break;
+            }
         }
         if (!found) {
             output.accept("Результат:");
             output.accept("----------- Заявка не найдена! --------------");
-            }
         }
+    }
 }

@@ -1,11 +1,23 @@
 package ru.job4j.tracker;
+
 import ru.job4j.tracker.action.*;
 import ru.job4j.tracker.input.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+/**
+ * Основное меню.
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 1.0
+ * @since 09.09.2019
+ */
 class MenuTracker {
+    /**
+     * вывод данных
+     */
     private final Consumer<String> output;
     /**
      * @param хранит ссылку на объект .
@@ -21,7 +33,6 @@ class MenuTracker {
     private List<UserAction> actions = new ArrayList<>();
     /**
      * Конструктор.
-     *
      * @param input объект типа Input
      * @param tracker объект типа Tracker
      */
@@ -32,14 +43,10 @@ class MenuTracker {
     }
     /**
      * Метод для заполнения массива меню.
-     *
+     * @return массив с ключами.
      */
     List<Integer> range() {
-        List<Integer> numbers = new ArrayList<>(actions.size());
-        for (int index = 0; index < actions.size(); index++) {
-            numbers.add(index, actions.get(index).key());
-        }
-        return numbers;
+        return this.actions.stream().mapToInt(UserAction::key).boxed().collect(Collectors.toList());
     }
     /**
      * Метод заполняет массив.
@@ -55,7 +62,6 @@ class MenuTracker {
     }
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
-     *
      * @param key ключ операции
      */
     void select(int key) {

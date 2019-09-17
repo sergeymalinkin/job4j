@@ -4,6 +4,12 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 
 import java.util.function.Consumer;
+/**
+ * Действие - добавление заявки.
+ * @author Sergey Malinkin (sloyz@ya.ru)
+ * @version 2.0
+ * @since 17.09.2019.
+ */
 public class AddItem extends BaseAction {
     private final Consumer<String> output;
     public AddItem(int key, String info, Consumer<String> output) {
