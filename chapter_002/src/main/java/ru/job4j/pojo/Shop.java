@@ -1,5 +1,4 @@
 package ru.job4j.pojo;
-
 /**
  * Удаление моделей из массива - выполнение задания.
  * @author Sergey Malinkin (sloyz@ya.ru)
