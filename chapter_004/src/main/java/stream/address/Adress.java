@@ -1,4 +1,5 @@
 package stream.address;
+
 import java.util.Objects;
 /**
  * @author Sergey Malinkin (sloyz@ya.ru)
@@ -6,6 +7,7 @@ import java.util.Objects;
  * @since 10.09.2019
  */
 class Address {
+
     private final String city;
     private final String street;
     private final int home;
