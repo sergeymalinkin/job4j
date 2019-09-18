@@ -7,25 +7,23 @@ package ru.job4j.pojo;
  * @since 18.09.2019
  */
 public class Shop {
-    public Product[] delete(Product[] products, int index) {
+    Product[] delete(Product[] products, int index) {
         System.out.println();
         System.out.println("Удаляем значение из ячейки с индексом " + index);
         products[index] = null;
-
         for (int i = index; i < products.length - 1; i++) {
-            Product product = products[index + 1];
+            Product product = products[i + 1];
             //проверяем, что объект не равен null. тк у нас массив не заполнен целиком.
             if (product != null) {
-                products[i] = products[index];
-                System.out.println(products[i + 1]);
+                products[i] = products[i + 1];
             } else {
                 System.out.println("null");
             }
         }
         System.out.println("Массив после удаления:");
-        for (int i = index; i < products.length; i++) {
-            if (products[i] != null) {
-                System.out.println(products[i].getName());
+        for (Product product : products) {
+            if (product != null) {
+                System.out.println(product.getName());
             } else {
                 System.out.println("null");
             }
@@ -38,7 +36,6 @@ public class Shop {
         products[0] = new Product("Milk", 10);
         products[1] = new Product("Bread", 4);
         products[2] = new Product("Egg", 19);
-
         for (Product product : products) {
             //проверяем, что объект не равен null. тк у нас массив не заполнен целиком.
             if (product != null) {
@@ -48,5 +45,6 @@ public class Shop {
             }
         }
     }
-
 }
+
+
