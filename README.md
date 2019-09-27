@@ -9,6 +9,8 @@
 Разработать приложение-хранилище заявок
 
 [Основной модуль](https://github.com/sergeymalinkin/job4j/blob/master/chapter_002/src/main/java/ru/job4j/tracker/StartUI.java)
+
 [Ссылка](https://github.com/sergeymalinkin/job4j/tree/master/chapter_002/src/main/java/ru/job4j/tracker)
-[Иллюстрация к проекту](https://github.com/sergeymalinkin/job4j/blob/master/chapter_002/src/main/java/ru/job4j/tracker/Package%20tracker.png)
+
+![Иллюстрация к проекту](https://github.com/sergeymalinkin/job4j/blob/master/chapter_002/src/main/java/ru/job4j/tracker/Package%20tracker.png)
  
